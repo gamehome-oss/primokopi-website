@@ -55,1000 +55,146 @@
       --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.6);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-cream);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    h1, h2, h3, .serif-font {
-      font-family: 'Playfair Display', serif;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      font-family: inherit;
-      cursor: pointer;
-      border: none;
-      outline: none;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Top Banner */
-    .top-bar {
-      background: var(--topbar-bg);
-      color: var(--topbar-text);
-      font-size: 0.85rem;
-      padding: 8px 0;
-      font-weight: 500;
-      border-bottom: 1px solid var(--border);
-      transition: var(--transition);
-    }
-    .top-bar-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.1);
-      padding: 3px 10px;
-      border-radius: var(--radius-full);
-      font-size: 0.75rem;
-    }
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      background-color: #34D399;
-      border-radius: 50%;
-      box-shadow: 0 0 0 rgba(52, 211, 153, 0.4);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
-      70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
-    }
-
-    /* Navigation */
-    header {
-      position: sticky;
-      top: 0;
-      background: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-      border-bottom: 1px solid var(--border);
-      transition: var(--transition);
-    }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 80px;
-    }
-    .brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .logo-emblem {
-      width: 44px;
-      height: 44px;
-      background: var(--brand-amber);
-      color: #120D0A;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 1.35rem;
-      font-family: 'Playfair Display', serif;
-      box-shadow: var(--shadow-sm);
-    }
-    .brand-name {
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: var(--brand-espresso);
-      line-height: 1.1;
-    }
-    .brand-name span {
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--brand-amber);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      transition: var(--transition);
-      position: relative;
-    }
-    .nav-links a:hover {
-      color: var(--brand-amber);
-    }
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    /* Theme Toggle Switch Button (Icon Only) */
-    .theme-toggle-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      background: var(--bg-card);
-      color: var(--text-main);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      transition: var(--transition);
-      padding: 0;
-    }
-    .theme-toggle-btn:hover {
-      border-color: var(--brand-amber);
-      background: var(--bg-surface);
-      transform: translateY(-2px);
-    }
-    .theme-icon {
-      font-size: 1.2rem;
-      line-height: 1;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border-radius: var(--radius-full);
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-    .btn-primary {
-      background: var(--brand-amber);
-      color: #120D0A;
-      box-shadow: 0 4px 14px rgba(201, 122, 62, 0.35);
-      font-weight: 700;
-    }
-    .btn-primary:hover {
-      background: #f09553;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(201, 122, 62, 0.45);
-    }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-main);
-    }
-    .btn-outline:hover {
-      background: var(--bg-card);
-      border-color: var(--brand-amber);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 70px 0 60px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
-      gap: 60px;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--brand-amber-light);
-      color: var(--brand-amber);
-      padding: 6px 16px;
-      border-radius: var(--radius-full);
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      border: 1px solid rgba(201, 122, 62, 0.25);
-    }
-    .hero-title {
-      font-size: 3.3rem;
-      line-height: 1.15;
-      font-weight: 700;
-      color: var(--brand-espresso);
-      margin-bottom: 20px;
-    }
-    .hero-title em {
-      font-style: italic;
-      color: var(--brand-amber);
-    }
-    .hero-desc {
-      font-size: 1.12rem;
-      color: var(--text-muted);
-      margin-bottom: 32px;
-      max-width: 530px;
-      line-height: 1.65;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-    }
-    .stat-item h4 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--brand-espresso);
-    }
-    .stat-item p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* Hero Card / Visual */
-    .hero-visual {
-      position: relative;
-    }
-    .hero-card-main {
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border);
-      position: relative;
-      transition: var(--transition);
-    }
-    .hero-banner-art {
-      width: 100%;
-      height: 350px;
-      border-radius: var(--radius-md);
-      background: linear-gradient(135deg, #2A1A10 0%, #472D1B 55%, #764A27 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 26px;
-      color: white;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .hero-banner-art::before {
-      content: '';
-      position: absolute;
-      top: -25%;
-      right: -20%;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(226, 140, 75, 0.45) 0%, rgba(255,255,255,0) 70%);
-    }
-    .hero-banner-art::after {
-      content: 'KEDIRI × JAKARTA';
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      font-size: 0.72rem;
-      letter-spacing: 2px;
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .hero-banner-tag {
-      font-size: 0.75rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--brand-amber);
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .hero-banner-name {
-      font-size: 1.85rem;
-      font-weight: 700;
-      font-family: 'Playfair Display', serif;
-      color: #FFFFFF;
-    }
-
-    .floating-card-rating {
-      position: absolute;
-      top: -20px;
-      right: -15px;
-      background: var(--bg-surface);
-      padding: 16px 20px;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border: 1px solid var(--border);
-      transition: var(--transition);
-    }
-    .star-score {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--brand-espresso);
-      line-height: 1;
-    }
-    .star-stars {
-      color: #F59E0B;
-      font-size: 0.9rem;
-    }
-
-    .floating-card-status {
-      position: absolute;
-      bottom: -15px;
-      left: 10px;
-      background: var(--bg-surface);
-      padding: 14px 18px;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      border: 1px solid var(--border);
-      transition: var(--transition);
-    }
-    .icon-box {
-      width: 42px;
-      height: 42px;
-      background: var(--brand-amber-light);
-      color: var(--brand-amber);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-
-    /* Fusion Concept Banner */
-    .concept-section {
-      padding: 40px 0 60px;
-    }
-    .concept-banner {
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      align-items: center;
-      box-shadow: var(--shadow-sm);
-    }
-    .concept-tag {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--brand-amber);
-      margin-bottom: 8px;
-      display: block;
-    }
-    .concept-title {
-      font-size: 1.9rem;
-      color: var(--brand-espresso);
-      margin-bottom: 14px;
-      line-height: 1.25;
-    }
-    .concept-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    .concept-pillars {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .pillar-box {
-      background: var(--bg-card);
-      padding: 20px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-    }
-    .pillar-box h4 {
-      font-size: 1rem;
-      color: var(--brand-espresso);
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .pillar-box p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    /* Key Information Quick Grid */
-    .quick-info-section {
-      padding: 10px 0 60px;
-    }
-    .quick-info-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .quick-card {
-      background: var(--bg-surface);
-      padding: 24px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .quick-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--brand-amber);
-    }
-    .quick-card-icon {
-      width: 46px;
-      height: 46px;
-      background: var(--bg-card);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--brand-amber);
-      font-size: 1.3rem;
-      border: 1px solid var(--border);
-    }
-    .quick-card h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--brand-espresso);
-    }
-    .quick-card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Highlights & Ambience */
-    .ambience-section {
-      padding: 70px 0;
-      background: var(--bg-card);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      transition: var(--transition);
-    }
-    .section-header {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 50px;
-    }
-    .section-subtitle {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--brand-amber);
-      font-weight: 700;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .section-title {
-      font-size: 2.3rem;
-      color: var(--brand-espresso);
-      font-weight: 700;
-      line-height: 1.25;
-    }
-    .section-header p {
-      color: var(--text-muted);
-      margin-top: 12px;
-      font-size: 1.05rem;
-    }
-
-    .ambience-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .ambience-card {
-      background: var(--bg-surface);
-      border-radius: var(--radius-md);
-      padding: 32px 28px;
-      border: 1px solid var(--border);
-      position: relative;
-      transition: var(--transition);
-    }
-    .ambience-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 12px;
-      color: var(--brand-espresso);
-    }
-    .ambience-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-    .ambience-pill {
-      display: inline-block;
-      margin-top: 16px;
-      font-size: 0.78rem;
-      padding: 4px 10px;
-      background: var(--bg-card);
-      border-radius: var(--radius-full);
-      font-weight: 600;
-      color: var(--brand-amber);
-      border: 1px solid var(--border);
-    }
-
-    /* Menu Section */
-    .menu-section {
-      padding: 80px 0;
-    }
-    .menu-filter-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      padding: 10px 22px;
-      border-radius: var(--radius-full);
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      transition: var(--transition);
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--brand-amber);
-      color: #120D0A;
-      border-color: var(--brand-amber);
-      font-weight: 700;
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .menu-card {
-      background: var(--bg-surface);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 24px;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .menu-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--brand-amber);
-    }
-    .menu-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 10px;
-    }
-    .menu-tag {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
-    }
-    .tag-popular {
-      background: rgba(239, 68, 68, 0.15);
-      color: #F87171;
-      border: 1px solid rgba(239, 68, 68, 0.25);
-    }
-    .tag-signature {
-      background: rgba(245, 158, 11, 0.15);
-      color: #FBBF24;
-      border: 1px solid rgba(245, 158, 11, 0.25);
-    }
-    .tag-comfort {
-      background: rgba(99, 102, 241, 0.15);
-      color: #A5B4FC;
-      border: 1px solid rgba(99, 102, 241, 0.25);
-    }
-    .tag-kediri {
-      background: rgba(16, 185, 129, 0.15);
-      color: #34D399;
-      border: 1px solid rgba(16, 185, 129, 0.25);
-    }
-    .menu-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--brand-espresso);
-      margin-bottom: 6px;
-    }
-    .menu-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-    .menu-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 14px;
-      border-top: 1px dashed var(--border);
-    }
-    .menu-price {
-      font-weight: 700;
-      color: var(--brand-amber);
-      font-size: 1rem;
-    }
-    .order-item-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--bg-card);
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      transition: var(--transition);
-      border: 1px solid var(--border);
-    }
-    .order-item-btn:hover {
-      background: var(--brand-amber);
-      color: #120D0A;
-      border-color: var(--brand-amber);
-    }
-
-    /* Reviews Section */
-    .reviews-section {
-      padding: 80px 0;
-      background: #140E0A;
-      color: white;
-      position: relative;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .reviews-header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    .reviews-header h2 {
-      font-size: 2.3rem;
-      margin-bottom: 12px;
-      color: #FAF7F2;
-    }
-    .google-rating-banner {
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      background: rgba(255,255,255,0.06);
-      padding: 12px 28px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(255,255,255,0.12);
-      margin-top: 16px;
-    }
-    .google-score {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #FBBF24;
-      line-height: 1;
-    }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 40px;
-    }
-    .review-card {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius-md);
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .quote-icon {
-      font-size: 2rem;
-      color: var(--brand-amber);
-      line-height: 1;
-      margin-bottom: 12px;
-      font-family: serif;
-    }
-    .review-text {
-      font-size: 1rem;
-      font-style: italic;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      color: #E2D9D2;
-    }
-    .reviewer-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .reviewer-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--brand-amber);
-      color: #120D0A;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-    }
-    .reviewer-details h5 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #FAF7F2;
-    }
-    .reviewer-details span {
-      font-size: 0.75rem;
-      color: #A89B91;
-    }
-
-    /* Location & Hours Section */
-    .location-section {
-      padding: 80px 0;
-    }
-    .location-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: stretch;
-    }
-    .location-card {
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 40px;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-    .info-group {
-      display: flex;
-      gap: 18px;
-      margin-bottom: 28px;
-    }
-    .info-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--brand-amber-light);
-      color: var(--brand-amber);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      flex-shrink: 0;
-      border: 1px solid var(--border);
-    }
-    .info-content h4 {
-      font-size: 1.05rem;
-      color: var(--brand-espresso);
-      margin-bottom: 4px;
-    }
-    .info-content p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.5;
-    }
-
-    .crowd-meter {
-      background: var(--bg-card);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      margin-top: 20px;
-      border: 1px solid var(--border);
-    }
-    .crowd-status {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .meter-bar {
-      height: 8px;
-      background: rgba(0,0,0,0.2);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .meter-fill {
-      width: 35%;
-      height: 100%;
-      background: #10B981;
-      border-radius: 4px;
-    }
-
-    .map-preview-card {
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-    .map-embed-wrapper {
-      flex: 1;
-      min-height: 350px;
-      background: #251D16;
-      position: relative;
-    }
-    .map-embed-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .map-actions {
-      padding: 20px;
-      display: flex;
-      gap: 12px;
-      background: var(--bg-surface);
-      border-top: 1px solid var(--border);
-      transition: var(--transition);
-    }
-
-    /* CTA Banner */
-    .cta-banner {
-      background: linear-gradient(135deg, #301E13 0%, #170E08 100%);
-      border-radius: var(--radius-lg);
-      padding: 50px;
-      color: white;
-      text-align: center;
-      margin-bottom: 80px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .cta-banner h2 {
-      font-size: 2.3rem;
-      margin-bottom: 16px;
-      color: #FAF7F2;
-    }
-    .cta-banner p {
-      max-width: 620px;
-      margin: 0 auto 30px;
-      color: #D3C7BE;
-      font-size: 1.05rem;
-    }
-
-    /* Footer */
-    footer {
-      background: #0D0907;
-      color: #9E8F85;
-      padding: 60px 0 30px;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: 40px;
-      margin-bottom: 50px;
-    }
-    .footer-brand h3 {
-      color: white;
-      font-size: 1.4rem;
-      margin-bottom: 14px;
-    }
-    .footer-col h5 {
-      color: white;
-      font-size: 1rem;
-      margin-bottom: 18px;
-    }
-    .footer-links {
-      list-style: none;
-    }
-    .footer-links li {
-      margin-bottom: 10px;
-    }
-    .footer-links a:hover {
-      color: var(--brand-amber);
-    }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 992px) {
-      .hero-grid, .location-grid, .concept-banner {
-        grid-template-columns: 1fr;
-      }
-      .quick-info-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .ambience-grid, .menu-grid, .reviews-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .hero-title {
-        font-size: 2.7rem;
-      }
-    }
-    @media (max-width: 640px) {
-      .nav-links {
-        display: none;
-      }
-      .quick-info-grid, .ambience-grid, .menu-grid, .reviews-grid, .footer-grid, .concept-pillars {
-        grid-template-columns: 1fr;
-      }
-      .hero-title {
-        font-size: 2.15rem;
-      }
-      .cta-banner {
-        padding: 30px 20px;
-      }
-      .hero-stats {
-        flex-direction: column;
-        gap: 16px;
-      }
-      .floating-card-rating {
-        top: -15px;
-        right: -10px;
-        padding: 10px 14px;
-      }
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-cream); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: background-color 0.3s ease, color 0.3s ease; }
+    h1, h2, h3, .serif-font { font-family: 'Playfair Display', serif; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .top-bar { background: var(--topbar-bg); color: var(--topbar-text); font-size: 0.85rem; padding: 8px 0; font-weight: 500; border-bottom: 1px solid var(--border); transition: var(--transition); }
+    .top-bar-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .status-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.1); padding: 3px 10px; border-radius: var(--radius-full); font-size: 0.75rem; }
+    .pulse-dot { width: 8px; height: 8px; background-color: #34D399; border-radius: 50%; box-shadow: 0 0 0 rgba(52, 211, 153, 0.4); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); } 70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); } 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); } }
+    header { position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid var(--border); transition: var(--transition); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+    .brand-logo { display: flex; align-items: center; gap: 14px; }
+    .logo-emblem { width: 44px; height: 44px; background: var(--brand-amber); color: #120D0A; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 800; font-size: 1.35rem; font-family: 'Playfair Display', serif; box-shadow: var(--shadow-sm); }
+    .brand-name { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.5px; color: var(--brand-espresso); line-height: 1.1; }
+    .brand-name span { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--brand-amber); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); transition: var(--transition); position: relative; }
+    .nav-links a:hover { color: var(--brand-amber); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .theme-toggle-btn { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); border-radius: 50%; transition: var(--transition); padding: 0; }
+    .theme-toggle-btn:hover { border-color: var(--brand-amber); background: var(--bg-surface); transform: translateY(-2px); }
+    .theme-icon { font-size: 1.2rem; line-height: 1; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 22px; border-radius: var(--radius-full); font-size: 0.9rem; font-weight: 600; transition: var(--transition); }
+    .btn-primary { background: var(--brand-amber); color: #120D0A; box-shadow: 0 4px 14px rgba(201, 122, 62, 0.35); font-weight: 700; }
+    .btn-primary:hover { background: #f09553; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(201, 122, 62, 0.45); }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+    .btn-outline:hover { background: var(--bg-card); border-color: var(--brand-amber); }
+    .hero { padding: 70px 0 60px; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 60px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-amber-light); color: var(--brand-amber); padding: 6px 16px; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; border: 1px solid rgba(201, 122, 62, 0.25); }
+    .hero-title { font-size: 3.3rem; line-height: 1.15; font-weight: 700; color: var(--brand-espresso); margin-bottom: 20px; }
+    .hero-title em { font-style: italic; color: var(--brand-amber); }
+    .hero-desc { font-size: 1.12rem; color: var(--text-muted); margin-bottom: 32px; max-width: 530px; line-height: 1.65; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 40px; }
+    .hero-stats { display: flex; gap: 32px; border-top: 1px solid var(--border); padding-top: 24px; }
+    .stat-item h4 { font-size: 1.75rem; font-weight: 700; color: var(--brand-espresso); }
+    .stat-item p { font-size: 0.85rem; color: var(--text-muted); }
+    .hero-visual { position: relative; }
+    .hero-card-main { background: var(--bg-surface); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-lg); border: 1px solid var(--border); position: relative; transition: var(--transition); }
+    .hero-banner-art { width: 100%; height: 350px; border-radius: var(--radius-md); background: linear-gradient(135deg, #2A1A10 0%, #472D1B 55%, #764A27 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 26px; color: white; position: relative; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); }
+    .hero-banner-art::before { content: ''; position: absolute; top: -25%; right: -20%; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(226, 140, 75, 0.45) 0%, rgba(255,255,255,0) 70%); }
+    .hero-banner-art::after { content: 'KEDIRI × JAKARTA'; position: absolute; top: 24px; right: 24px; font-size: 0.72rem; letter-spacing: 2px; padding: 4px 10px; border-radius: var(--radius-full); background: rgba(255,255,255,0.12); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.2); }
+    .hero-banner-tag { font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--brand-amber); font-weight: 700; margin-bottom: 6px; }
+    .hero-banner-name { font-size: 1.85rem; font-weight: 700; font-family: 'Playfair Display', serif; color: #FFFFFF; }
+    .floating-card-rating { position: absolute; top: -20px; right: -15px; background: var(--bg-surface); padding: 16px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 12px; border: 1px solid var(--border); transition: var(--transition); }
+    .star-score { font-size: 1.6rem; font-weight: 800; color: var(--brand-espresso); line-height: 1; }
+    .star-stars { color: #F59E0B; font-size: 0.9rem; }
+    .floating-card-status { position: absolute; bottom: -15px; left: 10px; background: var(--bg-surface); padding: 14px 18px; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 14px; border: 1px solid var(--border); transition: var(--transition); }
+    .icon-box { width: 42px; height: 42px; background: var(--brand-amber-light); color: var(--brand-amber); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+    .concept-section { padding: 40px 0 60px; }
+    .concept-banner { background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; box-shadow: var(--shadow-sm); }
+    .concept-tag { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-amber); margin-bottom: 8px; display: block; }
+    .concept-title { font-size: 1.9rem; color: var(--brand-espresso); margin-bottom: 14px; line-height: 1.25; }
+    .concept-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+    .concept-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .pillar-box { background: var(--bg-card); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border); }
+    .pillar-box h4 { font-size: 1rem; color: var(--brand-espresso); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .pillar-box p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; }
+    .quick-info-section { padding: 10px 0 60px; }
+    .quick-info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .quick-card { background: var(--bg-surface); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border); transition: var(--transition); display: flex; flex-direction: column; gap: 10px; }
+    .quick-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--brand-amber); }
+    .quick-card-icon { width: 46px; height: 46px; background: var(--bg-card); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--brand-amber); font-size: 1.3rem; border: 1px solid var(--border); }
+    .quick-card h4 { font-size: 1rem; font-weight: 700; color: var(--brand-espresso); }
+    .quick-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+    .ambience-section { padding: 70px 0; background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: var(--transition); }
+    .section-header { text-align: center; max-width: 680px; margin: 0 auto 50px; }
+    .section-subtitle { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-amber); font-weight: 700; margin-bottom: 8px; display: block; }
+    .section-title { font-size: 2.3rem; color: var(--brand-espresso); font-weight: 700; line-height: 1.25; }
+    .section-header p { color: var(--text-muted); margin-top: 12px; font-size: 1.05rem; }
+    .ambience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .ambience-card { background: var(--bg-surface); border-radius: var(--radius-md); padding: 32px 28px; border: 1px solid var(--border); position: relative; transition: var(--transition); }
+    .ambience-card h3 { font-size: 1.35rem; margin-bottom: 12px; color: var(--brand-espresso); }
+    .ambience-card p { color: var(--text-muted); font-size: 0.95rem; }
+    .ambience-pill { display: inline-block; margin-top: 16px; font-size: 0.78rem; padding: 4px 10px; background: var(--bg-card); border-radius: var(--radius-full); font-weight: 600; color: var(--brand-amber); border: 1px solid var(--border); }
+    .menu-section { padding: 80px 0; }
+    .menu-filter-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+    .filter-btn { padding: 10px 22px; border-radius: var(--radius-full); background: var(--bg-surface); border: 1px solid var(--border); font-size: 0.9rem; font-weight: 600; color: var(--text-muted); transition: var(--transition); }
+    .filter-btn.active, .filter-btn:hover { background: var(--brand-amber); color: #120D0A; border-color: var(--brand-amber); font-weight: 700; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .menu-card { background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border); padding: 24px; transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between; }
+    .menu-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--brand-amber); }
+    .menu-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .menu-tag { font-size: 0.72rem; text-transform: uppercase; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px; }
+    .tag-popular { background: rgba(239, 68, 68, 0.15); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.25); }
+    .tag-signature { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.25); }
+    .tag-comfort { background: rgba(99, 102, 241, 0.15); color: #A5B4FC; border: 1px solid rgba(99, 102, 241, 0.25); }
+    .tag-kediri { background: rgba(16, 185, 129, 0.15); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.25); }
+    .menu-name { font-size: 1.2rem; font-weight: 700; color: var(--brand-espresso); margin-bottom: 6px; }
+    .menu-desc { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px; }
+    .menu-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px dashed var(--border); }
+    .menu-price { font-weight: 700; color: var(--brand-amber); font-size: 1rem; }
+    .order-item-btn { width: 32px; height: 32px; border-radius: 50%; background: var(--bg-card); color: var(--text-main); display: flex; align-items: center; justify-content: center; font-weight: bold; transition: var(--transition); border: 1px solid var(--border); }
+    .order-item-btn:hover { background: var(--brand-amber); color: #120D0A; border-color: var(--brand-amber); }
+    .reviews-section { padding: 80px 0; background: #140E0A; color: white; position: relative; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .reviews-header { text-align: center; margin-bottom: 50px; }
+    .reviews-header h2 { font-size: 2.3rem; margin-bottom: 12px; color: #FAF7F2; }
+    .google-rating-banner { display: inline-flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.06); padding: 12px 28px; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.12); margin-top: 16px; }
+    .google-score { font-size: 1.8rem; font-weight: 800; color: #FBBF24; line-height: 1; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
+    .review-card { background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
+    .quote-icon { font-size: 2rem; color: var(--brand-amber); line-height: 1; margin-bottom: 12px; font-family: serif; }
+    .review-text { font-size: 1rem; font-style: italic; line-height: 1.6; margin-bottom: 20px; color: #E2D9D2; }
+    .reviewer-info { display: flex; align-items: center; gap: 12px; }
+    .reviewer-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--brand-amber); color: #120D0A; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .reviewer-details h5 { font-size: 0.95rem; font-weight: 600; color: #FAF7F2; }
+    .reviewer-details span { font-size: 0.75rem; color: #A89B91; }
+    .location-section { padding: 80px 0; }
+    .location-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: stretch; }
+    .location-card { background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 40px; box-shadow: var(--shadow-sm); transition: var(--transition); }
+    .info-group { display: flex; gap: 18px; margin-bottom: 28px; }
+    .info-icon { width: 44px; height: 44px; background: var(--brand-amber-light); color: var(--brand-amber); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; border: 1px solid var(--border); }
+    .info-content h4 { font-size: 1.05rem; color: var(--brand-espresso); margin-bottom: 4px; }
+    .info-content p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; }
+    .crowd-meter { background: var(--bg-card); border-radius: var(--radius-md); padding: 20px; margin-top: 20px; border: 1px solid var(--border); }
+    .crowd-status { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
+    .meter-bar { height: 8px; background: rgba(0,0,0,0.2); border-radius: 4px; overflow: hidden; }
+    .meter-fill { width: 35%; height: 100%; background: #10B981; border-radius: 4px; }
+    .map-preview-card { background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: var(--transition); }
+    .map-embed-wrapper { flex: 1; min-height: 350px; background: #251D16; position: relative; }
+    .map-embed-wrapper iframe { width: 100%; height: 100%; border: 0; }
+    .map-actions { padding: 20px; display: flex; gap: 12px; background: var(--bg-surface); border-top: 1px solid var(--border); transition: var(--transition); }
+    .cta-banner { background: linear-gradient(135deg, #301E13 0%, #170E08 100%); border-radius: var(--radius-lg); padding: 50px; color: white; text-align: center; margin-bottom: 80px; position: relative; overflow: hidden; border: 1px solid var(--border); }
+    .cta-banner h2 { font-size: 2.3rem; margin-bottom: 16px; color: #FAF7F2; }
+    .cta-banner p { max-width: 620px; margin: 0 auto 30px; color: #D3C7BE; font-size: 1.05rem; }
+    footer { background: #0D0907; color: #9E8F85; padding: 60px 0 30px; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 50px; }
+    .footer-brand h3 { color: white; font-size: 1.4rem; margin-bottom: 14px; }
+    .footer-col h5 { color: white; font-size: 1rem; margin-bottom: 18px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a:hover { color: var(--brand-amber); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
+    @media (max-width: 992px) { .hero-grid, .location-grid, .concept-banner { grid-template-columns: 1fr; } .quick-info-grid { grid-template-columns: repeat(2, 1fr); } .ambience-grid, .menu-grid, .reviews-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } .hero-title { font-size: 2.7rem; } }
+    @media (max-width: 640px) { .nav-links { display: none; } .quick-info-grid, .ambience-grid, .menu-grid, .reviews-grid, .footer-grid, .concept-pillars { grid-template-columns: 1fr; } .hero-title { font-size: 2.15rem; } .cta-banner { padding: 30px 20px; } .hero-stats { flex-direction: column; gap: 16px; } .floating-card-rating { top: -15px; right: -10px; padding: 10px 14px; } }
   </style>
 </head>
 <body>
-
-  <!-- Top Bar -->
   <div class="top-bar">
     <div class="container top-bar-content">
       <div style="display: flex; align-items: center; gap: 14px;">
@@ -1056,645 +202,68 @@
         <span>Pasar Minggu, South Jakarta City, Jakarta</span>
       </div>
       <div style="display: flex; align-items: center; gap: 16px;">
-        <span>Reservasi & Order: <strong>081510294427</strong></span>
+        <span>Reservasi &amp; Order: <strong>081510294427</strong></span>
       </div>
     </div>
   </div>
-
-  <!-- Header / Navigation -->
   <header>
     <div class="container nav-container">
       <a href="#" class="brand-logo">
         <div class="logo-emblem">P</div>
-        <div class="brand-name">
-          PRIMO KOPI
-          <span>Kediri × Urban Jakarta</span>
-        </div>
+        <div class="brand-name">PRIMO KOPI<span>Kediri × Urban Jakarta</span></div>
       </a>
       <ul class="nav-links">
-        <li><a href="#konsep">Konsep</a></li>
-        <li><a href="#suasana">Ruang & Ambience</a></li>
-        <li><a href="#menu">Menu Pilihan</a></li>
-        <li><a href="#ulasan">Ulasan (4.7★)</a></li>
-        <li><a href="#lokasi">Lokasi & Jam</a></li>
+        <li><a href="#konsep">Konsep</a></li><li><a href="#suasana">Ruang &amp; Ambience</a></li><li><a href="#menu">Menu Pilihan</a></li><li><a href="#ulasan">Ulasan (4.7★)</a></li><li><a href="#lokasi">Lokasi &amp; Jam</a></li>
       </ul>
       <div class="nav-actions">
-        <!-- Interactive Theme Switcher Button (Icon Only) -->
-        <button id="themeToggleBtn" class="theme-toggle-btn" title="Ganti Mode Gelap / Terang" aria-label="Ganti Mode Gelap / Terang">
-          <span class="theme-icon" id="themeIcon">☀️</span>
-        </button>
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="Ganti Mode Gelap / Terang" aria-label="Ganti Mode Gelap / Terang"><span class="theme-icon" id="themeIcon">🌙</span></button>
         <a href="https://wa.me/6281510294427?text=Halo%20Primo%20Kopi,%20saya%20ingin%20tanya%20menu%20dan%20reservasi%20meja" target="_blank" class="btn btn-primary">Chat WhatsApp</a>
       </div>
     </div>
   </header>
-
-  <!-- Hero Section -->
   <section class="hero" id="konsep">
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-badge">Pedesaan Lokal Kediri Berpadu dengan Urban Jakarta</div>
         <h1 class="hero-title">Kehangatan Desa,<br><em>Energi Kota</em> di Setiap Cangkir.</h1>
-        <p class="hero-desc">
-          Primo Kopi membawa napas ketenangan pedesaan lereng Kediri ke tengah dinamisnya Pasar Minggu, Jakarta Selatan. Tempat singgah hangat dengan biji kopi pilihan, racikan artisanal, dan ruang komunal yang nyaman untuk WFC maupun bercengkerama.
-        </p>
-        <div class="hero-actions">
-          <a href="#menu" class="btn btn-primary" style="padding: 14px 28px; font-size: 1rem;">Lihat Menu Pilihan</a>
-          <a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" target="_blank" class="btn btn-outline" style="padding: 14px 28px; font-size: 1rem;">Petunjuk Arah (Maps)</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <h4>4.7 / 5.0</h4>
-            <p>560+ Ulasan Pengunjung</p>
-          </div>
-          <div class="stat-item">
-            <h4>Rp 50k - 125k</h4>
-            <p>Estimasi per Orang</p>
-          </div>
-          <div class="stat-item">
-            <h4>Kediri × Urban</h4>
-            <p>Guyub Pedesaan & WFC Ready</p>
-          </div>
-        </div>
+        <p class="hero-desc">Primo Kopi membawa napas ketenangan pedesaan lereng Kediri ke tengah dinamisnya Pasar Minggu, Jakarta Selatan. Tempat singgah hangat dengan biji kopi pilihan, racikan artisanal, dan ruang komunal yang nyaman untuk WFC maupun bercengkerama.</p>
+        <div class="hero-actions"><a href="#menu" class="btn btn-primary" style="padding: 14px 28px; font-size: 1rem;">Lihat Menu Pilihan</a><a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" target="_blank" class="btn btn-outline" style="padding: 14px 28px; font-size: 1rem;">Petunjuk Arah (Maps)</a></div>
+        <div class="hero-stats"><div class="stat-item"><h4>4.7 / 5.0</h4><p>560+ Ulasan Pengunjung</p></div><div class="stat-item"><h4>Rp 50k - 125k</h4><p>Estimasi per Orang</p></div><div class="stat-item"><h4>Kediri × Urban</h4><p>Guyub Pedesaan &amp; WFC Ready</p></div></div>
       </div>
-
-      <div class="hero-visual">
-        <div class="hero-card-main">
-          <div class="hero-banner-art">
-            <div class="hero-banner-tag">Artisanal Coffee & Kitchen</div>
-            <div class="hero-banner-name">Primo Kopi</div>
-            <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 6px;">Pasar Minggu, South Jakarta City, Jakarta</p>
-          </div>
-          <div class="floating-card-rating">
-            <div class="star-score">4.7</div>
-            <div>
-              <div class="star-stars">★★★★★</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">560 Ulasan Terverifikasi</div>
-            </div>
-          </div>
-          <div class="floating-card-status">
-            <div class="icon-box">☕</div>
-            <div>
-              <div style="font-size: 0.85rem; font-weight: 700; color: var(--brand-espresso);">Live Crowd Meter</div>
-              <div style="font-size: 0.75rem; color: #10B981; font-weight: 600;">● Suasana Nyaman & Kondusif</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="hero-visual"><div class="hero-card-main"><div class="hero-banner-art"><div class="hero-banner-tag">Artisanal Coffee &amp; Kitchen</div><div class="hero-banner-name">Primo Kopi</div><p style="font-size: 0.9rem; opacity: 0.9; margin-top: 6px;">Pasar Minggu, South Jakarta City, Jakarta</p></div><div class="floating-card-rating"><div class="star-score">4.7</div><div><div class="star-stars">★★★★★</div><div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">560 Ulasan Terverifikasi</div></div></div><div class="floating-card-status"><div class="icon-box">☕</div><div><div style="font-size: 0.85rem; font-weight: 700; color: var(--brand-espresso);">Live Crowd Meter</div><div style="font-size: 0.75rem; color: #10B981; font-weight: 600;">✓ Suasana Nyaman &amp; Kondusif</div></div></div></div></div>
     </div>
   </section>
-
-  <!-- Fusion Concept Feature Banner -->
-  <section class="concept-section">
-    <div class="container">
-      <div class="concept-banner">
-        <div>
-          <span class="concept-tag">The Philosophy</span>
-          <h2 class="concept-title">Ketika Guyub Pedesaan Kediri Bertemu Ritme Jakarta</h2>
-          <p class="concept-desc">
-            Di Kediri, kopi adalah simbol kebersamaan, obrolan tanpa terburu-buru, dan keteduhan alam di bawah rindang pepohonan lereng Wilis & Kelud. Di Primo Kopi, kami membawa jiwa "guyub" tersebut ke tengah ritme modern urban Jakarta Selatan—menciptakan ruang di mana Anda bisa melambat sejenak tanpa kehilangan konektivitas.
-          </p>
-        </div>
-        <div class="concept-pillars">
-          <div class="pillar-box">
-            <h4>🌾 Jiwa Pedesaan Kediri</h4>
-            <p>Kehangatan material kayu jati, keramahan khas Jawa Timur, dan rempah alami gula aren otentik.</p>
-          </div>
-          <div class="pillar-box">
-            <h4>🏙️ Desain Urban Jakarta</h4>
-            <p>Arsitektur sleek kontemporer, Wi-Fi berkecepatan tinggi, stopkontak melimpah di setiap sudut WFC.</p>
-          </div>
-          <div class="pillar-box">
-            <h4>☕ Biji Kopi Kurasi</h4>
-            <p>Espresso beans lokal nusantara berkualitas tinggi diseduh dengan standar specialty roastery presisi.</p>
-          </div>
-          <div class="pillar-box">
-            <h4>🍲 Cita Rasa Kolaboratif</h4>
-            <p>Perpaduan comfort food modern perkotaan dengan sentuhan camilan hangat bernuansa desa.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quick Info Badges -->
-  <section class="quick-info-section">
-    <div class="container">
-      <div class="quick-info-grid">
-        <div class="quick-card">
-          <div class="quick-card-icon">📍</div>
-          <h4>Lokasi Strategis</h4>
-          <p>Pasar Minggu, South Jakarta City, Jakarta. Akses mudah dijangkau dari berbagai penjuru Jabodetabek.</p>
-        </div>
-        <div class="quick-card">
-          <div class="quick-card-icon">🕒</div>
-          <h4>Jam Operasional</h4>
-          <p>Setiap hari buka hingga pukul 22.00 WIB. Waktu santai favorit berkisar 30 menit s/d 3 jam.</p>
-        </div>
-        <div class="quick-card">
-          <div class="quick-card-icon">💳</div>
-          <h4>Harga Bersahabat</h4>
-          <p>Rp 50.000 – 125.000 per orang untuk santap kenyang, signature coffee, dan artisanal waffle.</p>
-        </div>
-        <div class="quick-card">
-          <div class="quick-card-icon">🛵</div>
-          <h4>Fasilitas Lengkap</h4>
-          <p>Parkir motor aman, ruang indoor AC sejuk, area outdoor rindang, stopkontak siap pakai.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ambiance / Space Feature -->
-  <section class="ambience-section" id="suasana">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Pilihan Tempat Duduk</span>
-        <h2 class="section-title">Temukan Sudut Favorit Anda di Primo Kopi</h2>
-        <p>Dirancang untuk berbagai kebutuhan: mulai dari fokus bekerja dengan laptop, meeting santai, hingga jagongan sore khas pedesaan.</p>
-      </div>
-
-      <div class="ambience-grid">
-        <div class="ambience-card">
-          <h3>Urban Communal Table</h3>
-          <p>Meja panjang dari kayu jati solid dengan colokan listrik di setiap kursi dan pencahayaan hangat. Paling diminati para profesional muda untuk WFC atau casual meeting.</p>
-          <span class="ambience-pill">Work From Cafe</span>
-        </div>
-        <div class="ambience-card">
-          <h3>Living Room & Sofa Corner</h3>
-          <p>Area tempat duduk empuk bergaya ruang tamu rumah Jawa modern. Tempat sempurna untuk ngobrol santai dari hati ke hati, membaca, atau menikmati hidangan penutup.</p>
-          <span class="ambience-pill">Quality Time & Ngobrol Santai</span>
-        </div>
-        <div class="ambience-card">
-          <h3>Teras Outdoor Rindang</h3>
-          <p>Suasana luar ruang yang asri menghadirkan angin semilir khas pelataran desa, ramah perokok, dan estetik untuk menikmati senja Pasar Minggu.</p>
-          <span class="ambience-pill">Outdoor & Smoking Friendly</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Menu Highlights -->
-  <section class="menu-section" id="menu">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Menu Rekomendasi</span>
-        <h2 class="section-title">Kopi Pilihan & Santapan Favorit</h2>
-        <p>Dari racikan signature fusion hingga comfort food hangat yang bikin betah berlama-lama.</p>
-      </div>
-
-      <!-- Filter Tabs -->
-      <div class="menu-filter-container">
-        <button class="filter-btn active" onclick="filterMenu('all', this)">Semua Menu</button>
-        <button class="filter-btn" onclick="filterMenu('coffee', this)">Coffee & Refreshers</button>
-        <button class="filter-btn" onclick="filterMenu('mains', this)">Mains & Kitchen</button>
-        <button class="filter-btn" onclick="filterMenu('dessert', this)">Waffles & Bites</button>
-      </div>
-
-      <div class="menu-grid" id="menuList">
-        <!-- Item 1 -->
-        <div class="menu-card" data-category="coffee">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-popular">Populer #1</span>
-              <span class="star-stars">★★★★★</span>
-            </div>
-            <h4 class="menu-name">Ice Creamy Latte Primo</h4>
-            <p class="menu-desc">Espresso kental dengan susu creamy lembut dan hint manis gula aren lokal yang seimbang dan menyegarkan.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">Signature Item</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="menu-card" data-category="coffee">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-signature">Signature Fusion</span>
-              <span class="star-stars">★★★★★</span>
-            </div>
-            <h4 class="menu-name">Primo Breeze</h4>
-            <p class="menu-desc">Minuman signature kreasi barista Primo dengan sensasi sari buah segar dan aroma eksotis khas alam pedesaan.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">House Special</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="menu-card" data-category="coffee">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-kediri">Otentik Desa</span>
-              <span class="star-stars">★★★★★</span>
-            </div>
-            <h4 class="menu-name">Kopi Tubruk Susu Kediri</h4>
-            <p class="menu-desc">Seduhan kopi hitam khas Jawa Timuran dengan perpaduan susu kental manis dan gula kelapa yang gurih beraroma tanah subur.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">Heritage Blend</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="menu-card" data-category="coffee">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-comfort">Tea & Blend</span>
-              <span class="star-stars">★★★★☆</span>
-            </div>
-            <h4 class="menu-name">Canadian Iced Tea</h4>
-            <p class="menu-desc">Seduhan teh dingin dengan sentuhan khas Canadian maple yang wangi dan menenangkan dahaga di panasnya Jakarta.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">Best Seller</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="menu-card" data-category="coffee">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-popular">Favorit</span>
-              <span class="star-stars">★★★★★</span>
-            </div>
-            <h4 class="menu-name">Matcha Berry</h4>
-            <p class="menu-desc">Perpaduan serasi antara matcha Jepang premium dan saus berry alami yang asam-manis segar.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">Non-Coffee</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-
-        <!-- Item 6 -->
-        <div class="menu-card" data-category="mains">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-popular">Must Try</span>
-              <span class="star-stars">★★★★★</span>
-            </div>
-            <h4 class="menu-name">Double Cheese Hamburg</h4>
-            <p class="menu-desc">Patty daging sapi gurih juicy dengan keju leleh ganda, disajikan hangat dengan side dish spesial.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">Main Course</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-
-        <!-- Item 7 -->
-        <div class="menu-card" data-category="mains">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-signature">Chef's Choice</span>
-              <span class="star-stars">★★★★★</span>
-            </div>
-            <h4 class="menu-name">Truffle Carbonara</h4>
-            <p class="menu-desc">Pasta al dente dengan saus carbonara kaya rasa beraroma minyak truffle putih yang mewah bergaya urban bistro.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">Pasta Spesial</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-
-        <!-- Item 8 -->
-        <div class="menu-card" data-category="mains">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-comfort">Japanese</span>
-              <span class="star-stars">★★★★☆</span>
-            </div>
-            <h4 class="menu-name">Chicken Katsu Curry</h4>
-            <p class="menu-desc">Ayam katsu renyah berpadu dengan kuah kari kental rempah yang hangat dan mengenyangkan.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">Comfort Food</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-
-        <!-- Item 9 -->
-        <div class="menu-card" data-category="mains">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-comfort">Rice Bowl</span>
-              <span class="star-stars">★★★★☆</span>
-            </div>
-            <h4 class="menu-name">Gyudon Beef Bowl</h4>
-            <p class="menu-desc">Irisan tipis daging sapi empuk dimasak saus manis gurih di atas nasi pulen hangat.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">Rice Bowl</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-
-        <!-- Item 10 -->
-        <div class="menu-card" data-category="dessert">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-popular">Sweet Tooth</span>
-              <span class="star-stars">★★★★★</span>
-            </div>
-            <h4 class="menu-name">Nutella Waffles</h4>
-            <p class="menu-desc">Wafel Belgia hangat dengan pinggiran garing, lumuran Nutella melimpah dan taburan crunchy.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">Dessert</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-
-        <!-- Item 11 -->
-        <div class="menu-card" data-category="dessert">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-signature">Signature</span>
-              <span class="star-stars">★★★★★</span>
-            </div>
-            <h4 class="menu-name">Cappuccino & Blaubeer-Käsekuchen</h4>
-            <p class="menu-desc">Sajian cappuccino berbusa halus disandingkan dengan cheesecake blueberry khas yang legit dan creamy.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">Pairing Set</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-
-        <!-- Item 12 -->
-        <div class="menu-card" data-category="coffee">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-comfort">Classic</span>
-              <span class="star-stars">★★★★☆</span>
-            </div>
-            <h4 class="menu-name">Americano & Cafe Latte</h4>
-            <p class="menu-desc">Single-origin roasted beans pilihan nusantara dengan ekstraksi presisi untuk pecinta kopi sejati.</p>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">Classic Coffee</span>
-            <span class="order-item-btn">✓</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Google Reviews -->
-  <section class="reviews-section" id="ulasan">
-    <div class="container">
-      <div class="reviews-header">
-        <span class="section-subtitle" style="color: #FBBF24;">Suara Pengunjung</span>
-        <h2>Apa Kata Mereka Tentang Primo Kopi?</h2>
-        <div class="google-rating-banner">
-          <div class="google-score">4.7</div>
-          <div style="text-align: left;">
-            <div style="color: #FBBF24;">★★★★★</div>
-            <div style="font-size: 0.85rem; color: #E2D9D2;">Berdasarkan 560 Ulasan Google Maps</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div>
-            <div class="quote-icon">“</div>
-            <p class="review-text">Suasananya adem dan beda dari kafe Jakarta kebanyakan. Ada nuansa hangat pedesaan tapi tempatnya modern banget. WFC seharian di Pasar Minggu jadi betah.</p>
-          </div>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">P</div>
-            <div class="reviewer-details">
-              <h5>Pengunjung Setia</h5>
-              <span>Local Guide · Google Review</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <div>
-            <div class="quote-icon">“</div>
-            <p class="review-text">Area indoornya ada communal table dari kayu jati yang luas dan sofa empuk. Kopinya konsisten mantap, Ice Creamy Latte dan Kopi Susu Desanya juara!</p>
-          </div>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">R</div>
-            <div class="reviewer-details">
-              <h5>Coffee Enthusiast</h5>
-              <span>Ulasan Terverifikasi</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <div>
-            <div class="quote-icon">“</div>
-            <p class="review-text">Makanan lengkap dari burger, pasta sampai waffles. Baristanya ramah banget berasa guyub khas daerah. Parkiran motor juga gampang.</p>
-          </div>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">M</div>
-            <div class="reviewer-details">
-              <h5>Food & Cafe Hunter</h5>
-              <span>Pengunjung Jakarta Selatan</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align: center;">
-        <a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.25); color: white;">
-          Lihat Semua 560 Ulasan di Google Maps
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Location & Hours Section -->
-  <section class="location-section" id="lokasi">
-    <div class="container">
-      <div class="location-grid">
-        <div class="location-card">
-          <span class="section-subtitle">Kunjungi Kami</span>
-          <h2 class="section-title" style="margin-bottom: 24px;">Tempat Singgah Hangat di Pasar Minggu</h2>
-
-          <div class="info-group">
-            <div class="info-icon">📍</div>
-            <div class="info-content">
-              <h4>Alamat Lengkap</h4>
-              <p>Pasar Minggu, South Jakarta City, Jakarta</p>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta</p>
-            </div>
-          </div>
-
-          <div class="info-group">
-            <div class="info-icon">⏰</div>
-            <div class="info-content">
-              <h4>Jam Operasional</h4>
-              <p>Senin – Minggu: <strong>Buka hingga pukul 22.00 WIB</strong></p>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Rata-rata waktu berkunjung: 30 menit hingga 3 jam.</p>
-            </div>
-          </div>
-
-          <div class="info-group">
-            <div class="info-icon">📞</div>
-            <div class="info-content">
-              <h4>Kontak & WhatsApp</h4>
-              <p>Telepon / WhatsApp: <strong>081510294427</strong></p>
-            </div>
-          </div>
-
-          <div class="crowd-meter">
-            <div class="crowd-status">
-              <span>Status Kepadatan Live</span>
-              <span style="color: #10B981;">● Tidak Terlalu Ramai</span>
-            </div>
-            <div class="meter-bar">
-              <div class="meter-fill"></div>
-            </div>
-            <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">
-              Waktu ideal untuk singgah dan menikmati kopi dengan suasana tenang saat ini.
-            </p>
-          </div>
-        </div>
-
-        <div class="map-preview-card">
-          <div class="map-embed-wrapper">
-            <iframe 
-              title="Peta Primo Kopi Pasar Minggu"
-              src="https://maps.google.com/maps?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta&t=&z=14&ie=UTF8&iwloc=&output=embed" 
-              loading="lazy" 
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="map-actions">
-            <a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" target="_blank" class="btn btn-primary" style="flex: 1;">
-              Buka Google Maps
-            </a>
-            <a href="https://wa.me/6281510294427?text=Halo%20Primo%20Kopi,%20saya%20ingin%20tanya%20arah%20lokasi" target="_blank" class="btn btn-outline" style="flex: 1;">
-              Chat WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Box -->
-  <div class="container">
-    <div class="cta-banner">
-      <h2>Ingin Mengadakan Gathering atau Reservasi Tempat?</h2>
-      <p>Primo Kopi menyediakan area indoor komunal bernuansa kayu pedesaan dan outdoor asri untuk kumpul komunitas, arisan, meeting santai, hingga intimate gathering.</p>
-      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
-        <a href="https://wa.me/6281510294427?text=Halo%20Primo%20Kopi,%20saya%20mau%20reservasi%20tempat%20untuk%20acara" target="_blank" class="btn btn-primary" style="background: #FFFFFF; color: #120D0A; font-weight: 700;">
-          Hubungi via WhatsApp
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h3>PRIMO KOPI</h3>
-          <p>Perpaduan harmoni kehangatan pedesaan lokal Kediri dengan ritme urban Jakarta modern. Menghadirkan kopi artisanal dan santapan lezat dalam suasana guyub dan menenangkan di Pasar Minggu.</p>
-        </div>
-        <div class="footer-col">
-          <h5>Tautan Cepat</h5>
-          <ul class="footer-links">
-            <li><a href="#konsep">Filosofi & Konsep</a></li>
-            <li><a href="#suasana">Ruang & Ambience</a></li>
-            <li><a href="#menu">Daftar Menu</a></li>
-            <li><a href="#ulasan">Ulasan Pengunjung</a></li>
-            <li><a href="#lokasi">Rute & Lokasi</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Menu Pilihan</h5>
-          <ul class="footer-links">
-            <li><a href="#menu">Ice Creamy Latte Primo</a></li>
-            <li><a href="#menu">Primo Breeze</a></li>
-            <li><a href="#menu">Kopi Tubruk Susu Kediri</a></li>
-            <li><a href="#menu">Double Cheese Hamburg</a></li>
-            <li><a href="#menu">Nutella Waffles</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Kunjungi Kami</h5>
-          <p style="margin-bottom: 10px;">Pasar Minggu, South Jakarta City, Jakarta</p>
-          <p style="margin-bottom: 10px;">Buka Setiap Hari hingga 22.00 WIB</p>
-          <p><strong>081510294427</strong></p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div>&copy; 2026 Primo Kopi. Seluruh hak cipta dilindungi.</div>
-        <div>Rating 4.7 ★ (560 ulasan Google) · Pasar Minggu, Jakarta Selatan</div>
-      </div>
-    </div>
-  </footer>
-
+  <section class="concept-section"><div class="container"><div class="concept-banner"><div><span class="concept-tag">The Philosophy</span><h2 class="concept-title">Ketika Guyub Pedesaan Kediri Bertemu Ritme Jakarta</h2><p class="concept-desc">Di Kediri, kopi adalah simbol kebersamaan, obrolan tanpa terburu-buru, dan keteduhan alam di bawah rindang pepohonan lereng Wilis &amp; Kelud. Di Primo Kopi, kami membawa jiwa "guyub" tersebut ke tengah ritme modern urban Jakarta Selatan—menciptakan ruang di mana Anda bisa melambat sejenak tanpa kehilangan konektivitas.</p></div><div class="concept-pillars"><div class="pillar-box"><h4>🌿 Jiwa Pedesaan Kediri</h4><p>Kehangatan material kayu jati, keramahan khas Jawa Timur, dan rempah alami gula aren otentik.</p></div><div class="pillar-box"><h4>🏙️ Desain Urban Jakarta</h4><p>Arsitektur sleek kontemporer, Wi-Fi berkecepatan tinggi, stopkontak melimpah di setiap sudut WFC.</p></div><div class="pillar-box"><h4>☕ Biji Kopi Kurasi</h4><p>Espresso beans lokal nusantara berkualitas tinggi diseduh dengan standar specialty roastery presisi.</p></div><div class="pillar-box"><h4>🤝 Cita Rasa Kolaboratif</h4><p>Perpaduan comfort food modern perkotaan dengan sentuhan camilan hangat bernuansa desa.</p></div></div></div></div></section>
+  <section class="quick-info-section"><div class="container"><div class="quick-info-grid"><div class="quick-card"><div class="quick-card-icon">📍</div><h4>Lokasi Strategis</h4><p>Pasar Minggu, South Jakarta City, Jakarta. Akses mudah dijangkau dari berbagai penjuru Jabodetabek.</p></div><div class="quick-card"><div class="quick-card-icon">⏰</div><h4>Jam Operasional</h4><p>Setiap hari buka hingga pukul 22.00 WIB. Waktu santai favorit berkisar 30 menit s/d 3 jam.</p></div><div class="quick-card"><div class="quick-card-icon">💳</div><h4>Harga Bersahabat</h4><p>Rp 50.000 – 125.000 per orang untuk santap kenyang, signature coffee, dan artisanal waffle.</p></div><div class="quick-card"><div class="quick-card-icon">♿</div><h4>Fasilitas Lengkap</h4><p>Parkir motor aman, ruang indoor AC sejuk, area outdoor rindang, stopkontak siap pakai.</p></div></div></div></section>
+  <section class="ambience-section" id="suasana"><div class="container"><div class="section-header"><span class="section-subtitle">Pilihan Tempat Duduk</span><h2 class="section-title">Temukan Sudut Favorit Anda di Primo Kopi</h2><p>Dirancang untuk berbagai kebutuhan: mulai dari fokus bekerja dengan laptop, meeting santai, hingga janjian sore khas pedesaan.</p></div><div class="ambience-grid"><div class="ambience-card"><h3>Urban Communal Table</h3><p>Meja panjang dari kayu jati solid dengan colokan listrik di setiap kursi dan pencahayaan hangat. Paling diminati para profesional muda untuk WFC atau casual meeting.</p><span class="ambience-pill">Work From Cafe</span></div><div class="ambience-card"><h3>Living Room &amp; Sofa Corner</h3><p>Area tempat duduk empuk bergaya ruang tamu rumah Jawa modern. Tempat sempurna untuk ngobrol santai dari hati ke hati, membaca, atau menikmati hidangan penutup.</p><span class="ambience-pill">Quality Time &amp; Ngobrol Santai</span></div><div class="ambience-card"><h3>Teras Outdoor Rindang</h3><p>Suasana luar ruang yang asri menghadirkan angin semilir khas pelataran desa, ramah perokok, dan estetik untuk menikmati senja Pasar Minggu.</p><span class="ambience-pill">Outdoor &amp; Smoking Friendly</span></div></div></div></section>
+  <section class="menu-section" id="menu"><div class="container"><div class="section-header"><span class="section-subtitle">Menu Rekomendasi</span><h2 class="section-title">Kopi Pilihan &amp; Santapan Favorit</h2><p>Dari racikan signature fusion hingga comfort food hangat yang bikin betah berlama-lama.</p></div><div class="menu-filter-container"><button class="filter-btn active" onclick="filterMenu('all', this)">Semua Menu</button><button class="filter-btn" onclick="filterMenu('coffee', this)">Coffee &amp; Refreshers</button><button class="filter-btn" onclick="filterMenu('mains', this)">Mains &amp; Kitchen</button><button class="filter-btn" onclick="filterMenu('dessert', this)">Waffles &amp; Bites</button></div><div class="menu-grid" id="menuList">
+    <div class="menu-card" data-category="coffee"><div><div class="menu-card-header"><span class="menu-tag tag-popular">Populer #1</span><span class="star-stars">★★★★★</span></div><h4 class="menu-name">Ice Creamy Latte Primo</h4><p class="menu-desc">Espresso kental dengan susu creamy lembut dan hint manis gula aren lokal yang seimbang dan menyegarkan.</p></div><div class="menu-footer"><span class="menu-price">Signature Item</span><span class="order-item-btn">↗</span></div></div>
+    <div class="menu-card" data-category="coffee"><div><div class="menu-card-header"><span class="menu-tag tag-signature">Signature Fusion</span><span class="star-stars">★★★★★</span></div><h4 class="menu-name">Primo Breeze</h4><p class="menu-desc">Minuman signature kreasi barista Primo dengan sensasi sari buah segar dan aroma eksotis khas alam pedesaan.</p></div><div class="menu-footer"><span class="menu-price">House Special</span><span class="order-item-btn">↗</span></div></div>
+    <div class="menu-card" data-category="coffee"><div><div class="menu-card-header"><span class="menu-tag tag-kediri">Otentik Desa</span><span class="star-stars">★★★★★</span></div><h4 class="menu-name">Kopi Tubruk Susu Kediri</h4><p class="menu-desc">Seduhan kopi hitam khas Jawa Timuran dengan perpaduan susu kental manis dan gula kelapa yang gurih beraroma tanah subur.</p></div><div class="menu-footer"><span class="menu-price">Heritage Blend</span><span class="order-item-btn">↗</span></div></div>
+    <div class="menu-card" data-category="coffee"><div><div class="menu-card-header"><span class="menu-tag tag-comfort">Tea &amp; Blend</span><span class="star-stars">★★★★☆</span></div><h4 class="menu-name">Canadian Iced Tea</h4><p class="menu-desc">Seduhan teh dingin dengan sentuhan khas Canadian maple yang wangi dan menenangkan dahaga di panasnya Jakarta.</p></div><div class="menu-footer"><span class="menu-price">Best Seller</span><span class="order-item-btn">↗</span></div></div>
+    <div class="menu-card" data-category="coffee"><div><div class="menu-card-header"><span class="menu-tag tag-popular">Favorit</span><span class="star-stars">★★★★★</span></div><h4 class="menu-name">Matcha Berry</h4><p class="menu-desc">Perpaduan serasi antara matcha Jepang premium dan saus berry alami yang asam-manis segar.</p></div><div class="menu-footer"><span class="menu-price">Non-Coffee</span><span class="order-item-btn">↗</span></div></div>
+    <div class="menu-card" data-category="mains"><div><div class="menu-card-header"><span class="menu-tag tag-popular">Must Try</span><span class="star-stars">★★★★★</span></div><h4 class="menu-name">Double Cheese Hamburg</h4><p class="menu-desc">Patty daging sapi gurih juicy dengan keju leleh ganda, disajikan hangat dengan side dish spesial.</p></div><div class="menu-footer"><span class="menu-price">Main Course</span><span class="order-item-btn">↗</span></div></div>
+    <div class="menu-card" data-category="mains"><div><div class="menu-card-header"><span class="menu-tag tag-signature">Chef's Choice</span><span class="star-stars">★★★★★</span></div><h4 class="menu-name">Truffle Carbonara</h4><p class="menu-desc">Pasta al dente dengan saus carbonara kaya rasa beraroma minyak truffle putih yang mewah bergaya urban bistro.</p></div><div class="menu-footer"><span class="menu-price">Pasta Spesial</span><span class="order-item-btn">↗</span></div></div>
+    <div class="menu-card" data-category="mains"><div><div class="menu-card-header"><span class="menu-tag tag-comfort">Japanese</span><span class="star-stars">★★★★☆</span></div><h4 class="menu-name">Chicken Katsu Curry</h4><p class="menu-desc">Ayam katsu renyah berpadu dengan kuah kari kental rempah yang hangat dan mengenyangkan.</p></div><div class="menu-footer"><span class="menu-price">Comfort Food</span><span class="order-item-btn">↗</span></div></div>
+    <div class="menu-card" data-category="mains"><div><div class="menu-card-header"><span class="menu-tag tag-comfort">Rice Bowl</span><span class="star-stars">★★★★★</span></div><h4 class="menu-name">Gyudon Beef Bowl</h4><p class="menu-desc">Irisan tipis daging sapi empuk dimasak saus manis gurih di atas nasi pulen hangat.</p></div><div class="menu-footer"><span class="menu-price">Rice Bowl</span><span class="order-item-btn">↗</span></div></div>
+    <div class="menu-card" data-category="dessert"><div><div class="menu-card-header"><span class="menu-tag tag-popular">Sweet Tooth</span><span class="star-stars">★★★★★</span></div><h4 class="menu-name">Nutella Waffles</h4><p class="menu-desc">Wafel Belgia hangat dengan pinggiran garing, lumuran Nutella melimpah dan taburan crunchy.</p></div><div class="menu-footer"><span class="menu-price">Dessert</span><span class="order-item-btn">↗</span></div></div>
+    <div class="menu-card" data-category="dessert"><div><div class="menu-card-header"><span class="menu-tag tag-signature">Signature</span><span class="star-stars">★★★★★</span></div><h4 class="menu-name">Cappuccino &amp; Blaubeer-Käsekuchen</h4><p class="menu-desc">Sajian cappuccino berbusa halus disandingkan dengan cheesecake blueberry khas yang legit dan creamy.</p></div><div class="menu-footer"><span class="menu-price">Pairing Set</span><span class="order-item-btn">↗</span></div></div>
+    <div class="menu-card" data-category="coffee"><div><div class="menu-card-header"><span class="menu-tag tag-comfort">Classic</span><span class="star-stars">★★★★☆</span></div><h4 class="menu-name">Americano &amp; Cafe Latte</h4><p class="menu-desc">Single-origin roasted beans pilihan nusantara dengan ekstraksi presisi untuk pecinta kopi sejati.</p></div><div class="menu-footer"><span class="menu-price">Classic Coffee</span><span class="order-item-btn">↗</span></div></div>
+  </div></div></section>
+  <section class="reviews-section" id="ulasan"><div class="container"><div class="reviews-header"><span class="section-subtitle" style="color: #FBBF24;">Suara Pengunjung</span><h2>Apa Kata Mereka Tentang Primo Kopi?</h2><div class="google-rating-banner"><div class="google-score">4.7</div><div style="text-align: left;"><div style="color: #FBBF24;">★★★★★</div><div style="font-size: 0.85rem; color: #E2D9D2;">Berdasarkan 560 Ulasan Google Maps</div></div></div></div><div class="reviews-grid"><div class="review-card"><div><div class="quote-icon">“</div><p class="review-text">Suasananya adem dan beda dari kafe Jakarta kebanyakan. Ada nuansa hangat pedesaan tapi tempatnya modern banget. WFC seharian di Pasar Minggu jadi betah.</p></div><div class="reviewer-info"><div class="reviewer-avatar">P</div><div class="reviewer-details"><h5>Pengunjung Setia</h5><span>Local Guide · Google Review</span></div></div></div><div class="review-card"><div><div class="quote-icon">“</div><p class="review-text">Area indoornya ada communal table dari kayu jati yang luas dan sofa empuk. Kopinya konsisten mantap, Ice Creamy Latte dan Kopi Susu Desanya juara!</p></div><div class="reviewer-info"><div class="reviewer-avatar">R</div><div class="reviewer-details"><h5>Coffee Enthusiast</h5><span>Ulasan Terverifikasi</span></div></div></div><div class="review-card"><div><div class="quote-icon">“</div><p class="review-text">Makanan lengkap dari burger, pasta sampai waffles. Baristanya ramah banget berasa guyub khas daerah. Parkiran motor juga gampang.</p></div><div class="reviewer-info"><div class="reviewer-avatar">M</div><div class="reviewer-details"><h5>Food &amp; Cafe Hunter</h5><span>Pengunjung Jakarta Selatan</span></div></div></div></div><div style="text-align: center;"><a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" target="_blank" class="btn btn-outline" style="border-color: rgba(255,255,255,0.25); color: white;">Lihat Semua 560 Ulasan di Google Maps</a></div></div></section>
+  <section class="location-section" id="lokasi"><div class="container"><div class="location-grid"><div class="location-card"><span class="section-subtitle">Kunjungi Kami</span><h2 class="section-title" style="margin-bottom: 24px;">Tempat Singgah Hangat di Pasar Minggu</h2><div class="info-group"><div class="info-icon">📍</div><div class="info-content"><h4>Alamat Lengkap</h4><p>Pasar Minggu, South Jakarta City, Jakarta</p><p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta</p></div></div><div class="info-group"><div class="info-icon">◷</div><div class="info-content"><h4>Jam Operasional</h4><p>Senin – Minggu: <strong>Buka hingga pukul 22.00 WIB</strong></p><p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Rata-rata waktu berkunjung: 30 menit hingga 3 jam.</p></div></div><div class="info-group"><div class="info-icon">☎</div><div class="info-content"><h4>Kontak &amp; WhatsApp</h4><p>Telepon / WhatsApp: <strong>081510294427</strong></p></div></div><div class="crowd-meter"><div class="crowd-status"><span>Status Kepadatan Live</span><span style="color: #10B981;">✓ Tidak Terlalu Ramai</span></div><div class="meter-bar"><div class="meter-fill"></div></div><p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">Waktu ideal untuk singgah dan menikmati kopi dengan suasana tenang saat ini.</p></div></div><div class="map-preview-card"><div class="map-embed-wrapper"><iframe title="Peta Primo Kopi Pasar Minggu" src="https://maps.google.com/maps?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen></iframe></div><div class="map-actions"><a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" target="_blank" class="btn btn-primary" style="flex: 1;">Buka Google Maps</a><a href="https://wa.me/6281510294427?text=Halo%20Primo%20Kopi,%20saya%20ingin%20tanya%20arah%20lokasi" target="_blank" class="btn btn-outline" style="flex: 1;">Chat WhatsApp</a></div></div></div></div></section>
+  <div class="container"><div class="cta-banner"><h2>Ingin Mengadakan Gathering atau Reservasi Tempat?</h2><p>Primo Kopi menyediakan area indoor komunal bernuansa kayu pedesaan dan outdoor asri untuk kumpul komunitas, arisan, meeting santai, hingga intimate gathering.</p><div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;"><a href="https://wa.me/6281510294427?text=Halo%20Primo%20Kopi,%20saya%20mau%20reservasi%20tempat%20untuk%20acara" target="_blank" class="btn btn-primary" style="background: #FFFFFF; color: #120D0A; font-weight: 700;">Hubungi via WhatsApp</a></div></div></div>
+  <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>PRIMO KOPI</h3><p>Perpaduan harmoni kehangatan pedesaan lokal Kediri dengan ritme urban Jakarta modern. Menghadirkan kopi artisanal dan santapan lezat dalam suasana guyub dan menenangkan di Pasar Minggu.</p></div><div class="footer-col"><h5>Tautan Cepat</h5><ul class="footer-links"><li><a href="#konsep">Filosofi &amp; Konsep</a></li><li><a href="#suasana">Ruang &amp; Ambience</a></li><li><a href="#menu">Daftar Menu</a></li><li><a href="#ulasan">Ulasan Pengunjung</a></li><li><a href="#lokasi">Rute &amp; Lokasi</a></li></ul></div><div class="footer-col"><h5>Menu Pilihan</h5><ul class="footer-links"><li><a href="#menu">Ice Creamy Latte Primo</a></li><li><a href="#menu">Primo Breeze</a></li><li><a href="#menu">Kopi Tubruk Susu Kediri</a></li><li><a href="#menu">Double Cheese Hamburg</a></li><li><a href="#menu">Nutella Waffles</a></li></ul></div><div class="footer-col"><h5>Kunjungi Kami</h5><p style="margin-bottom: 10px;">Pasar Minggu, South Jakarta City, Jakarta</p><p style="margin-bottom: 10px;">Buka Setiap Hari hingga 22.00 WIB</p><p><strong>081510294427</strong></p></div></div><div class="footer-bottom"><div>&copy; 2026 Primo Kopi. Seluruh hak cipta dilindungi.</div><div>Rating 4.7 ★ (560 ulasan Google) · Pasar Minggu, Jakarta Selatan</div></div></div></footer>
   <script>
-    // Theme Switcher (Dark & Light Mode)
     const htmlEl = document.documentElement;
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const themeIcon = document.getElementById('themeIcon');
-
-    function applyTheme(theme) {
-      htmlEl.setAttribute('data-theme', theme);
-      localStorage.setItem('primo_theme', theme);
-      if (theme === 'dark') {
-        themeIcon.textContent = '☀️';
-        themeToggleBtn.setAttribute('title', 'Beralih ke Mode Terang');
-      } else {
-        themeIcon.textContent = '🌙';
-        themeToggleBtn.setAttribute('title', 'Beralih ke Mode Gelap');
-      }
-    }
-
-    // Default to dark mode (cozy roastery atmosphere)
+    function applyTheme(theme) { htmlEl.setAttribute('data-theme', theme); localStorage.setItem('primo_theme', theme); if (theme === 'dark') { themeIcon.textContent = '🌙'; themeToggleBtn.setAttribute('title', 'Beralih ke Mode Terang'); } else { themeIcon.textContent = '☀️'; themeToggleBtn.setAttribute('title', 'Beralih ke Mode Gelap'); } }
     const savedTheme = localStorage.getItem('primo_theme') || 'dark';
     applyTheme(savedTheme);
-
-    themeToggleBtn.addEventListener('click', () => {
-      const currentTheme = htmlEl.getAttribute('data-theme') || 'dark';
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      applyTheme(newTheme);
-    });
-
-    // Filter Menu Items
-    function filterMenu(category, element) {
-      const buttons = document.querySelectorAll('.filter-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      element.classList.add('active');
-
-      const cards = document.querySelectorAll('.menu-card');
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    // Smooth Scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
+    themeToggleBtn.addEventListener('click', () => { const currentTheme = htmlEl.getAttribute('data-theme') || 'dark'; const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; applyTheme(newTheme); });
+    function filterMenu(category, element) { const buttons = document.querySelectorAll('.filter-btn'); buttons.forEach(btn => btn.classList.remove('active')); element.classList.add('active'); const cards = document.querySelectorAll('.menu-card'); cards.forEach(card => { if (category === 'all' || card.getAttribute('data-category') === category) { card.style.display = 'flex'; } else { card.style.display = 'none'; } }); }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
   </script>
 </body>
 </html>
