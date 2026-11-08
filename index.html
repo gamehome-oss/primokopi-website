@@ -9,839 +9,158 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-cream: #fbf8f3;
-      --bg-surface: #ffffff;
-      --bg-card: #f3ece2;
-      --nav-bg: rgba(251, 248, 243, 0.94);
-      --topbar-bg: #261a12;
-      --topbar-text: #f3e5d8;
-      --brand-espresso: #251b14;
-      --brand-coffee: #4d3728;
-      --brand-amber: #c97a3e;
-      --brand-amber-light: #f4e8dc;
-      --text-main: #1d1713;
-      --text-muted: #6c5e53;
-      --border: #e8ded1;
-      --shadow-lg: 0 20px 40px rgba(37, 27, 20, 0.12);
-      --shadow-md: 0 10px 30px rgba(37, 27, 20, 0.08);
-      --radius-lg: 24px;
-      --radius-md: 16px;
-      --radius-full: 999px;
-      --transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      --bg-cream: #fbf8f3; --bg-surface: #fff; --bg-card: #f3ece2;
+      --nav-bg: rgba(251, 248, 243, .94); --topbar-bg: #261a12; --topbar-text: #f3e5d8;
+      --brand-espresso: #251b14; --brand-coffee: #4d3728; --brand-amber: #c97a3e;
+      --brand-amber-light: #f4e8dc; --text-main: #1d1713; --text-muted: #6c5e53;
+      --border: #e8ded1; --shadow-lg: 0 20px 40px rgba(37,27,20,.12);
+      --shadow-md: 0 10px 30px rgba(37,27,20,.08); --radius-lg: 24px; --radius-md: 16px;
+      --radius-full: 999px; --transition: all .3s cubic-bezier(.2,.8,.2,1);
     }
-
     [data-theme="dark"] {
-      --bg-cream: #120d0a;
-      --bg-surface: #1b140f;
-      --bg-card: #251b14;
-      --nav-bg: rgba(18, 13, 10, 0.94);
-      --topbar-bg: #0c0805;
-      --topbar-text: #e8d8ca;
-      --brand-espresso: #f6efe9;
-      --brand-coffee: #e2d4c6;
-      --brand-amber: #e28c4b;
-      --brand-amber-light: #372114;
-      --text-main: #f5efe9;
-      --text-muted: #aa9c8f;
-      --border: #3a2b20;
+      --bg-cream: #120d0a; --bg-surface: #1b140f; --bg-card: #251b14;
+      --nav-bg: rgba(18,13,10,.94); --topbar-bg: #0c0805; --topbar-text: #e8d8ca;
+      --brand-espresso: #f6efe9; --brand-coffee: #e2d4c6; --brand-amber: #e28c4b;
+      --brand-amber-light: #372114; --text-main: #f5efe9; --text-muted: #aa9c8f; --border: #3a2b20;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg-cream);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    body { font-family: 'Plus Jakarta Sans',sans-serif; background: var(--bg-cream); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     button { font-family: inherit; cursor: pointer; border: none; }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .top-bar {
-      background: var(--topbar-bg);
-      color: var(--topbar-text);
-      font-size: 0.85rem;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .top-bar-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.1);
-      padding: 3px 10px;
-      border-radius: var(--radius-full);
-      font-size: 0.75rem;
-    }
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      background: #34d399;
-      border-radius: 50%;
-      box-shadow: 0 0 0 rgba(52, 211, 153, 0.4);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
-      70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      background: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 80px;
-      gap: 20px;
-    }
-    .brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .logo-emblem {
-      width: 44px;
-      height: 44px;
-      background: var(--brand-amber);
-      color: #120d0a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 1.25rem;
-    }
-    .brand-name {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--brand-espresso);
-      line-height: 1.1;
-    }
-    .brand-name span {
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--brand-amber);
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      transition: var(--transition);
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .top-bar { background: var(--topbar-bg); color: var(--topbar-text); font-size: .85rem; padding: 8px 0; border-bottom: 1px solid var(--border); }
+    .top-bar-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .status-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.1); padding: 3px 10px; border-radius: var(--radius-full); font-size: .75rem; }
+    .pulse-dot { width: 8px; height: 8px; background: #34d399; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,.7); } 70% { box-shadow: 0 0 0 8px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
+    header { position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid var(--border); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; min-height: 80px; gap: 20px; }
+    .brand-logo { display: flex; align-items: center; gap: 14px; }
+    .logo-emblem { width: 44px; height: 44px; background: var(--brand-amber); color: #120d0a; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 800; font-size: 1.25rem; }
+    .brand-name { font-size: 1.35rem; font-weight: 800; color: var(--brand-espresso); line-height: 1.1; }
+    .brand-name span { display: block; font-size: .72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--brand-amber); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: .95rem; font-weight: 500; color: var(--text-muted); transition: var(--transition); }
     .nav-links a:hover { color: var(--brand-amber); }
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border-radius: var(--radius-full);
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-    .btn-primary {
-      background: var(--brand-amber);
-      color: #120d0a;
-      box-shadow: 0 4px 14px rgba(201, 122, 62, 0.35);
-      font-weight: 700;
-    }
-    .btn-primary:hover {
-      background: #f09553;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(201, 122, 62, 0.45);
-    }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-main);
-    }
-    .btn-outline:hover {
-      background: var(--bg-card);
-      border-color: var(--brand-amber);
-    }
-
-    .hero {
-      padding: 70px 0 60px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
-      gap: 60px;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--brand-amber-light);
-      color: var(--brand-amber);
-      padding: 6px 16px;
-      border-radius: var(--radius-full);
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    .hero-title {
-      font-size: clamp(2.8rem, 3vw, 4rem);
-      line-height: 1.15;
-      font-weight: 700;
-      color: var(--brand-espresso);
-      margin-bottom: 20px;
-    }
-    .hero-title em {
-      font-style: italic;
-      color: var(--brand-amber);
-    }
-    .hero-desc {
-      font-size: 1.12rem;
-      color: var(--text-muted);
-      margin-bottom: 32px;
-      max-width: 530px;
-      line-height: 1.65;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-      flex-wrap: wrap;
-    }
-    .stat-item h4 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--brand-espresso);
-    }
-    .stat-item p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 22px; border-radius: var(--radius-full); font-size: .9rem; font-weight: 600; transition: var(--transition); }
+    .btn-primary { background: var(--brand-amber); color: #120d0a; box-shadow: 0 4px 14px rgba(201,122,62,.35); font-weight: 700; }
+    .btn-primary:hover { background: #f09553; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(201,122,62,.45); }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+    .btn-outline:hover { background: var(--bg-card); border-color: var(--brand-amber); }
+    .hero { padding: 70px 0 60px; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 60px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-amber-light); color: var(--brand-amber); padding: 6px 16px; border-radius: var(--radius-full); font-size: .8rem; font-weight: 700; margin-bottom: 20px; }
+    .hero-title { font-size: clamp(2.8rem,3vw,4rem); line-height: 1.15; font-weight: 700; color: var(--brand-espresso); margin-bottom: 20px; }
+    .hero-title em { font-style: italic; color: var(--brand-amber); }
+    .hero-desc { font-size: 1.12rem; color: var(--text-muted); margin-bottom: 32px; max-width: 530px; line-height: 1.65; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 40px; }
+    .hero-stats { display: flex; gap: 32px; border-top: 1px solid var(--border); padding-top: 24px; flex-wrap: wrap; }
+    .stat-item h4 { font-size: 1.75rem; font-weight: 700; color: var(--brand-espresso); }
+    .stat-item p { font-size: .85rem; color: var(--text-muted); }
     .hero-visual { position: relative; }
-    .hero-card-main {
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border);
-      position: relative;
-    }
-    .hero-banner-art {
-      position: relative;
-      width: 100%;
-      height: 360px;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      background: #f3d104;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
-      isolation: isolate;
-    }
-    .hero-banner-art::before {
-      content: '';
-      position: absolute;
-      inset: auto -12% -18% auto;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.2), rgba(255,255,255,0));
-      z-index: 0;
-    }
-    .hero-logo-mark {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transform: rotate(-3deg);
-      filter: drop-shadow(0 10px 0 rgba(32,25,20,0.9));
-    }
-    .logo-word {
-      display: block;
-      font-size: clamp(4.2rem, 5vw, 8.5rem);
-      line-height: 0.78;
-      font-weight: 900;
-      letter-spacing: -0.08em;
-      text-transform: uppercase;
-      font-family: 'Impact', 'Arial Black', sans-serif;
-      position: relative;
-      -webkit-text-stroke: 8px rgba(32, 25, 20, 0.92);
-      text-shadow: 0 8px 0 rgba(32,25,20,0.88);
-      transform: skewY(-3deg);
-    }
-    .logo-word--top {
-      color: #c4f0f3;
-      margin-bottom: 0.06em;
-    }
-    .logo-word--bottom {
-      color: #f7b7d3;
-    }
-    .floating-card-rating {
-      position: absolute;
-      top: -20px;
-      right: -15px;
-      background: var(--bg-surface);
-      padding: 16px 20px;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border: 1px solid var(--border);
-    }
+    .hero-card-main { background: var(--bg-surface); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-lg); border: 1px solid var(--border); position: relative; }
+    .hero-banner-art { position: relative; width: 100%; height: 360px; border-radius: var(--radius-md); overflow: hidden; background: #f3d104; display: flex; align-items: center; justify-content: center; padding: 32px; isolation: isolate; }
+    .hero-banner-art::before { content: ''; position: absolute; inset: auto -12% -18% auto; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle,rgba(255,255,255,.2),rgba(255,255,255,0)); z-index: 0; }
+    .hero-logo-mark { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-3deg); filter: drop-shadow(0 10px 0 rgba(32,25,20,.9)); }
+    .logo-word { display: block; font-size: clamp(4.2rem,5vw,8.5rem); line-height: .78; font-weight: 900; letter-spacing: -.08em; text-transform: uppercase; font-family: Impact,'Arial Black',sans-serif; position: relative; -webkit-text-stroke: 8px rgba(32,25,20,.92); text-shadow: 0 8px 0 rgba(32,25,20,.88); transform: skewY(-3deg); }
+    .logo-word--top { color: #c4f0f3; margin-bottom: .06em; }
+    .logo-word--bottom { color: #f7b7d3; }
+    .floating-card-rating { position: absolute; top: -20px; right: -15px; background: var(--bg-surface); padding: 16px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 12px; border: 1px solid var(--border); }
     .star-score { font-size: 1.6rem; font-weight: 800; color: var(--brand-espresso); }
-    .star-stars { color: #f59e0b; font-size: 0.9rem; }
-    .floating-card-status {
-      position: absolute;
-      bottom: -15px;
-      left: 10px;
-      background: var(--bg-surface);
-      padding: 14px 18px;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border: 1px solid var(--border);
-    }
-    .icon-box {
-      width: 42px;
-      height: 42px;
-      background: var(--brand-amber-light);
-      color: var(--brand-amber);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 50px;
-    }
-    .section-subtitle {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--brand-amber);
-      font-weight: 700;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .section-title {
-      font-size: 2.3rem;
-      color: var(--brand-espresso);
-      font-weight: 700;
-      line-height: 1.25;
-    }
-
+    .star-stars { color: #f59e0b; font-size: .9rem; }
+    .floating-card-status { position: absolute; bottom: -15px; left: 10px; background: var(--bg-surface); padding: 14px 18px; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 12px; border: 1px solid var(--border); }
+    .icon-box { width: 42px; height: 42px; background: var(--brand-amber-light); color: var(--brand-amber); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+    .section-header { text-align: center; max-width: 680px; margin: 0 auto 50px; }
+    .section-subtitle { font-size: .85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-amber); font-weight: 700; margin-bottom: 8px; display: block; }
+    .section-title { font-size: 2.3rem; color: var(--brand-espresso); font-weight: 700; line-height: 1.25; }
     .concept-section { padding: 40px 0 60px; }
-    .concept-banner {
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      align-items: center;
-    }
-    .concept-tag {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--brand-amber);
-      margin-bottom: 8px;
-      display: block;
-    }
-    .concept-title {
-      font-size: 1.9rem;
-      color: var(--brand-espresso);
-      margin-bottom: 14px;
-      line-height: 1.25;
-    }
-    .concept-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    .concept-pillars {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .pillar-box {
-      background: var(--bg-card);
-      padding: 20px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-    }
-    .pillar-box h4 {
-      font-size: 1rem;
-      color: var(--brand-espresso);
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .pillar-box p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
+    .concept-banner { background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+    .concept-tag { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-amber); margin-bottom: 8px; display: block; }
+    .concept-title { font-size: 1.9rem; color: var(--brand-espresso); margin-bottom: 14px; line-height: 1.25; }
+    .concept-desc { color: var(--text-muted); font-size: .95rem; line-height: 1.6; }
+    .concept-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .pillar-box { background: var(--bg-card); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border); }
+    .pillar-box h4 { font-size: 1rem; color: var(--brand-espresso); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .pillar-box p { font-size: .85rem; color: var(--text-muted); line-height: 1.45; }
     .quick-info-section { padding: 10px 0 60px; }
-    .quick-info-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .quick-card {
-      background: var(--bg-surface);
-      padding: 24px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .quick-card-icon {
-      width: 46px;
-      height: 46px;
-      background: var(--bg-card);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--brand-amber);
-      font-size: 1.3rem;
-    }
-    .quick-card h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--brand-espresso);
-    }
-    .quick-card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .ambience-section {
-      padding: 70px 0;
-      background: var(--bg-card);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .ambience-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .ambience-card {
-      background: var(--bg-surface);
-      border-radius: var(--radius-md);
-      padding: 32px 28px;
-      border: 1px solid var(--border);
-    }
-    .ambience-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 12px;
-      color: var(--brand-espresso);
-    }
-    .ambience-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-    .ambience-pill {
-      display: inline-block;
-      margin-top: 16px;
-      font-size: 0.78rem;
-      padding: 4px 10px;
-      background: var(--bg-card);
-      border-radius: var(--radius-full);
-      font-weight: 600;
-      color: var(--brand-amber);
-    }
-
+    .quick-info-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .quick-card { background: var(--bg-surface); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+    .quick-card-icon { width: 46px; height: 46px; background: var(--bg-card); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--brand-amber); font-size: 1.3rem; }
+    .quick-card h4 { font-size: 1rem; font-weight: 700; color: var(--brand-espresso); }
+    .quick-card p { font-size: .88rem; color: var(--text-muted); line-height: 1.5; }
+    .ambience-section { padding: 70px 0; background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .ambience-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .ambience-card { background: var(--bg-surface); border-radius: var(--radius-md); padding: 32px 28px; border: 1px solid var(--border); }
+    .ambience-card h3 { font-size: 1.35rem; margin-bottom: 12px; color: var(--brand-espresso); }
+    .ambience-card p { color: var(--text-muted); font-size: .95rem; }
+    .ambience-pill { display: inline-block; margin-top: 16px; font-size: .78rem; padding: 4px 10px; background: var(--bg-card); border-radius: var(--radius-full); font-weight: 600; color: var(--brand-amber); }
     .menu-section { padding: 80px 0; }
-    .menu-filter-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      padding: 10px 22px;
-      border-radius: var(--radius-full);
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: var(--brand-amber);
-      color: #120d0a;
-      border-color: var(--brand-amber);
-      font-weight: 700;
-    }
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .menu-card {
-      background: var(--bg-surface);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .menu-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 10px;
-      gap: 10px;
-    }
-    .menu-tag {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
-    }
-    .tag-popular { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.25); }
-    .tag-signature { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); }
-    .tag-comfort { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.25); }
-    .tag-kediri { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.25); }
-    .menu-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--brand-espresso);
-      margin-bottom: 6px;
-    }
-    .menu-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-    .menu-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 14px;
-      border-top: 1px dashed var(--border);
-    }
+    .menu-filter-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+    .filter-btn { padding: 10px 22px; border-radius: var(--radius-full); background: var(--bg-surface); border: 1px solid var(--border); font-size: .9rem; font-weight: 600; color: var(--text-muted); }
+    .filter-btn.active,.filter-btn:hover { background: var(--brand-amber); color: #120d0a; border-color: var(--brand-amber); font-weight: 700; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .menu-card { background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
+    .menu-card-header { display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: 10px; gap: 10px; }
+    .menu-tag { font-size: .72rem; text-transform: uppercase; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: .5px; }
+    .tag-popular { background: rgba(239,68,68,.15); color: #f87171; border: 1px solid rgba(239,68,68,.25); }
+    .tag-signature { background: rgba(245,158,11,.15); color: #fbbf24; border: 1px solid rgba(245,158,11,.25); }
+    .tag-comfort { background: rgba(99,102,241,.15); color: #a5b4fc; border: 1px solid rgba(99,102,241,.25); }
+    .tag-kediri { background: rgba(16,185,129,.15); color: #34d399; border: 1px solid rgba(16,185,129,.25); }
+    .menu-name { font-size: 1.2rem; font-weight: 700; color: var(--brand-espresso); margin-bottom: 6px; }
+    .menu-desc { font-size: .88rem; color: var(--text-muted); margin-bottom: 16px; }
+    .menu-footer { display: flex; justify-content: flex-start; align-items: center; padding-top: 14px; border-top: 1px dashed var(--border); }
     .menu-price { font-weight: 700; color: var(--brand-amber); }
-    .order-item-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--bg-card);
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-    }
-    .reviews-section {
-      padding: 80px 0;
-      background: #140e0a;
-      color: white;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .reviews-header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    .reviews-header h2 {
-      font-size: 2.3rem;
-      margin-bottom: 12px;
-      color: #faf7f2;
-    }
-    .google-rating-banner {
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      background: rgba(255,255,255,0.06);
-      padding: 12px 28px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
+    .reviews-section { padding: 80px 0; background: #140e0a; color: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .reviews-header { text-align: center; margin-bottom: 50px; }
+    .reviews-header h2 { font-size: 2.3rem; margin-bottom: 12px; color: #faf7f2; }
+    .google-rating-banner { display: inline-flex; align-items: center; gap: 16px; background: rgba(255,255,255,.06); padding: 12px 28px; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,.1); }
     .google-score { font-size: 1.8rem; font-weight: 800; color: #fbbf24; }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 40px;
-    }
-    .review-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius-md);
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      min-height: 220px;
-    }
-    .quote-icon {
-      font-size: 2rem;
-      color: var(--brand-amber);
-      margin-bottom: 12px;
-      font-family: serif;
-    }
-    .review-text {
-      font-size: 1rem;
-      font-style: italic;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      color: #e2d9d2;
-    }
-    .reviewer-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: auto;
-    }
-    .reviewer-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--brand-amber);
-      color: #120d0a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-    }
-    .reviewer-details h5 { font-size: 0.95rem; font-weight: 600; color: #faf7f2; }
-    .reviewer-details span { font-size: 0.75rem; color: #a89b91; }
-
+    .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 40px; }
+    .review-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-md); padding: 28px; display: flex; flex-direction: column; min-height: 220px; }
+    .quote-icon { font-size: 2rem; color: var(--brand-amber); margin-bottom: 12px; font-family: serif; }
+    .review-text { font-size: 1rem; font-style: italic; line-height: 1.6; margin-bottom: 20px; color: #e2d9d2; }
+    .reviewer-info { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+    .reviewer-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--brand-amber); color: #120d0a; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .reviewer-details h5 { font-size: .95rem; font-weight: 600; color: #faf7f2; }
+    .reviewer-details span { font-size: .75rem; color: #a89b91; }
     .location-section { padding: 80px 0; }
-    .location-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: stretch;
-    }
-    .location-card {
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 40px;
-      box-shadow: var(--shadow-sm);
-    }
-    .info-group {
-      display: flex;
-      gap: 18px;
-      margin-bottom: 28px;
-    }
-    .info-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--brand-amber-light);
-      color: var(--brand-amber);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    .info-content h4 {
-      font-size: 1.05rem;
-      color: var(--brand-espresso);
-      margin-bottom: 4px;
-    }
-    .info-content p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.5;
-    }
-    .crowd-meter {
-      background: var(--bg-card);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      margin-top: 20px;
-      border: 1px solid var(--border);
-    }
-    .crowd-status {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .meter-bar {
-      height: 8px;
-      background: rgba(0,0,0,0.2);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .meter-fill {
-      width: 35%;
-      height: 100%;
-      background: #10b981;
-      border-radius: 4px;
-    }
-    .map-preview-card {
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--shadow-sm);
-    }
-    .map-embed-wrapper {
-      flex: 1;
-      min-height: 350px;
-      background: #251d16;
-    }
-    .map-embed-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .map-actions {
-      padding: 20px;
-      display: flex;
-      gap: 12px;
-      background: var(--bg-surface);
-      border-top: 1px solid var(--border);
-    }
-
-    .cta-banner {
-      background: linear-gradient(135deg, #301e13 0%, #170e08 100%);
-      border-radius: var(--radius-lg);
-      padding: 50px;
-      color: white;
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    .cta-banner h2 {
-      font-size: 2.3rem;
-      margin-bottom: 16px;
-      color: #faf7f2;
-    }
-    .cta-banner p {
-      max-width: 620px;
-      margin: 0 auto 30px;
-      color: #d3c7be;
-      font-size: 1.05rem;
-    }
-
-    footer {
-      background: #0d0907;
-      color: #9e8f85;
-      padding: 60px 0 30px;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: 40px;
-      margin-bottom: 50px;
-    }
-    .footer-brand h3 { color: white; font-size: 1.4rem; margin-bottom: 14px; }
-    .footer-col h5 { color: white; font-size: 1rem; margin-bottom: 18px; }
+    .location-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: stretch; }
+    .location-card { background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 40px; box-shadow: var(--shadow-md); }
+    .info-group { display: flex; gap: 18px; margin-bottom: 28px; }
+    .info-icon { width: 44px; height: 44px; background: var(--brand-amber-light); color: var(--brand-amber); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .info-content h4 { font-size: 1.05rem; color: var(--brand-espresso); margin-bottom: 4px; }
+    .info-content p { color: var(--text-muted); font-size: .92rem; line-height: 1.5; }
+    .crowd-meter { background: var(--bg-card); border-radius: var(--radius-md); padding: 20px; margin-top: 20px; border: 1px solid var(--border); }
+    .crowd-status { display: flex; justify-content: space-between; font-size: .85rem; font-weight: 600; margin-bottom: 8px; }
+    .meter-bar { height: 8px; background: rgba(0,0,0,.2); border-radius: 4px; overflow: hidden; }
+    .meter-fill { width: 35%; height: 100%; background: #10b981; border-radius: 4px; }
+    .map-preview-card { background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-md); }
+    .map-embed-wrapper { flex: 1; min-height: 350px; background: #251d16; }
+    .map-embed-wrapper iframe { width: 100%; height: 100%; border: 0; }
+    .map-actions { padding: 20px; display: flex; gap: 12px; background: var(--bg-surface); border-top: 1px solid var(--border); }
+    .cta-banner { background: linear-gradient(135deg,#301e13 0%,#170e08 100%); border-radius: var(--radius-lg); padding: 50px; color: #fff; text-align: center; margin-bottom: 80px; }
+    .cta-banner h2 { font-size: 2.3rem; margin-bottom: 16px; color: #faf7f2; }
+    .cta-banner p { max-width: 620px; margin: 0 auto 30px; color: #d3c7be; font-size: 1.05rem; }
+    footer { background: #0d0907; color: #9e8f85; padding: 60px 0 30px; font-size: .9rem; border-top: 1px solid rgba(255,255,255,.06); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 50px; }
+    .footer-brand h3 { color: #fff; font-size: 1.4rem; margin-bottom: 14px; }
+    .footer-col h5 { color: #fff; font-size: 1rem; margin-bottom: 18px; }
     .footer-links { list-style: none; }
     .footer-links li { margin-bottom: 10px; }
     .footer-links a:hover { color: var(--brand-amber); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: .8rem; gap: 12px; flex-wrap: wrap; }
     @media (max-width: 992px) {
-      .hero-grid,
-      .location-grid,
-      .concept-banner {
-        grid-template-columns: 1fr;
-      }
-      .quick-info-grid { grid-template-columns: repeat(2, 1fr); }
-      .ambience-grid,
-      .menu-grid,
-      .reviews-grid,
-      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-grid,.location-grid,.concept-banner { grid-template-columns: 1fr; }
+      .quick-info-grid { grid-template-columns: repeat(2,1fr); }
+      .ambience-grid,.menu-grid,.reviews-grid,.footer-grid { grid-template-columns: repeat(2,1fr); }
     }
-
     @media (max-width: 640px) {
       .nav-links { display: none; }
-      .quick-info-grid,
-      .ambience-grid,
-      .menu-grid,
-      .reviews-grid,
-      .footer-grid,
-      .concept-pillars { grid-template-columns: 1fr; }
+      .quick-info-grid,.ambience-grid,.menu-grid,.reviews-grid,.footer-grid,.concept-pillars { grid-template-columns: 1fr; }
       .hero-title { font-size: 2.4rem; }
       .hero-stats { flex-wrap: wrap; gap: 16px; }
-      .concept-banner { padding: 24px; }
-      .location-card { padding: 24px; }
+      .concept-banner,.location-card { padding: 24px; }
       .footer-bottom { flex-direction: column; text-align: center; }
     }
   </style>
@@ -849,335 +168,82 @@
 <body>
   <div class="top-bar">
     <div class="container top-bar-content">
-      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
         <span class="status-badge"><span class="pulse-dot"></span> Buka Setiap Hari · Tutup 22.00 WIB</span>
         <span>Pasar Minggu, South Jakarta City, Jakarta</span>
       </div>
-      <div style="display: flex; align-items: center; gap: 16px;">
-        <span>Reservasi &amp; Order: <strong>081510294427</strong></span>
-      </div>
+      <div style="display:flex;align-items:center;gap:16px;"><span>Reservasi &amp; Order: <strong>081510294427</strong></span></div>
     </div>
   </div>
-
   <header>
     <div class="container nav-container">
-      <a href="#" class="brand-logo">
-        <div class="logo-emblem">P</div>
-        <div class="brand-name">PRIMO KOPI<span>Kediri × Urban Jakarta</span></div>
-      </a>
+      <a href="#" class="brand-logo"><div class="logo-emblem">P</div><div class="brand-name">PRIMO KOPI<span>Kediri × Urban Jakarta</span></div></a>
       <ul class="nav-links">
-        <li><a href="#konsep">Konsep</a></li>
-        <li><a href="#suasana">Ruang &amp; Ambience</a></li>
-        <li><a href="#menu">Menu Pilihan</a></li>
-        <li><a href="#ulasan">Ulasan (4.7★)</a></li>
-        <li><a href="#lokasi">Lokasi</a></li>
+        <li><a href="#konsep">Konsep</a></li><li><a href="#suasana">Ruang &amp; Ambience</a></li><li><a href="#menu">Menu Pilihan</a></li><li><a href="#ulasan">Ulasan (4.7★)</a></li><li><a href="#lokasi">Lokasi</a></li>
       </ul>
-      <div class="nav-actions">
-        <button class="btn btn-primary" aria-label="Chat WhatsApp">Chat WhatsApp</button>
-      </div>
+      <div class="nav-actions"><a class="btn btn-primary" href="https://wa.me/6281510294427">Chat WhatsApp</a></div>
     </div>
   </header>
-
   <section class="hero" id="konsep">
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-badge">Pedesaan Lokal Kediri Berpadu dengan Urban Jakarta</div>
         <h1 class="hero-title">Kehangatan Desa,<br><em>Energi Kota</em> di Setiap Cangkir.</h1>
         <p class="hero-desc">Primo Kopi membawa napas ketenangan pedesaan lereng Kediri ke tengah dinamisnya Pasar Minggu, Jakarta Selatan. Tempat singgah hangat dengan biji kopi pilihan, racikan artisanal, dan ruang komunal yang nyaman untuk WFC maupun bercengkerama.</p>
-        <div class="hero-actions">
-          <a href="#menu" class="btn btn-primary" style="padding: 14px 28px; font-size: 1rem;">Lihat Menu Pilihan</a>
-          <a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" class="btn btn-outline" style="padding: 14px 28px; font-size: 1rem;" target="_blank">Petunjuk Arah (Maps)</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat-item"><h4>4.7 / 5.0</h4><p>560+ Ulasan Pengunjung</p></div>
-          <div class="stat-item"><h4>Rp 50k - 125k</h4><p>Estimasi per Orang</p></div>
-          <div class="stat-item"><h4>Kediri × Urban</h4><p>Guyub Pedesaan &amp; WFC Ready</p></div>
-        </div>
+        <div class="hero-actions"><a href="#menu" class="btn btn-primary" style="padding:14px 28px;font-size:1rem;">Lihat Menu Pilihan</a><a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" class="btn btn-outline" style="padding:14px 28px;font-size:1rem;" target="_blank">Petunjuk Arah (Maps)</a></div>
+        <div class="hero-stats"><div class="stat-item"><h4>4.7 / 5.0</h4><p>560+ Ulasan Pengunjung</p></div><div class="stat-item"><h4>Rp 50k - 125k</h4><p>Estimasi per Orang</p></div><div class="stat-item"><h4>Kediri × Urban</h4><p>Guyub Pedesaan &amp; WFC Ready</p></div></div>
       </div>
-
-      <div class="hero-visual">
-        <div class="hero-card-main">
-          <div class="hero-banner-art">
-            <div class="hero-logo-mark" aria-label="Primo Kopi logo">
-              <span class="logo-word logo-word--top">PRIMO</span>
-              <span class="logo-word logo-word--bottom">KOPI</span>
-            </div>
-          </div>
-          <div class="floating-card-rating">
-            <div class="star-score">4.7</div>
-            <div>
-              <div class="star-stars">★★★★★</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">560 Ulasan Terverifikasi</div>
-            </div>
-          </div>
-          <div class="floating-card-status">
-            <div class="icon-box">☕</div>
-            <div>
-              <div style="font-size: 0.85rem; font-weight: 700; color: var(--brand-espresso);">Live Crowd Meter</div>
-              <div style="font-size: 0.75rem; color: #10B981; font-weight: 600;">✓ Suasana Nyaman &amp; Kondusif</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="hero-visual"><div class="hero-card-main"><div class="hero-banner-art"><div class="hero-logo-mark" aria-label="Primo Kopi logo"><span class="logo-word logo-word--top">PRIMO</span><span class="logo-word logo-word--bottom">KOPI</span></div></div>
+        <div class="floating-card-rating"><div class="star-score">4.7</div><div><div class="star-stars">★★★★★</div><div style="font-size:.75rem;color:var(--text-muted);font-weight:600;">560 Ulasan Terverifikasi</div></div></div>
+        <div class="floating-card-status"><div class="icon-box">☕</div><div><div style="font-size:.85rem;font-weight:700;color:var(--brand-espresso);">Live Crowd Meter</div><div style="font-size:.75rem;color:#10B981;font-weight:600;">✓ Suasana Nyaman &amp; Kondusif</div></div></div>
+      </div></div>
     </div>
   </section>
-
-  <section class="concept-section">
-    <div class="container">
-      <div class="concept-banner">
-        <div>
-          <span class="concept-tag">The Philosophy</span>
-          <h2 class="concept-title">Ketika Guyub Pedesaan Kediri Bertemu Energi Urban Jakarta</h2>
-          <p class="concept-desc">Kami menghadirkan suasana hangat dan akrab khas pedesaan, dipadukan dengan kenyamanan modern untuk bekerja, bertemu, dan menikmati kopi.</p>
-        </div>
-        <div class="concept-pillars">
-          <div class="pillar-box">
-            <h4>☕ Biji Kopi Pilihan</h4>
-            <p>Racikan kopi pilihan dengan cita rasa khas Nusantara.</p>
-          </div>
-          <div class="pillar-box">
-            <h4>🌿 Suasana Nyaman</h4>
-            <p>Ruang komunal untuk WFC maupun bercengkerama.</p>
-          </div>
-        </div>
-      </div>
+  <section class="concept-section"><div class="container"><div class="concept-banner"><div><span class="concept-tag">The Philosophy</span><h2 class="concept-title">Ketika Guyub Pedesaan Kediri Bertemu Energi Urban Jakarta</h2><p class="concept-desc">Kami menghadirkan suasana hangat dan akrab khas pedesaan, dipadukan dengan kenyamanan modern untuk bekerja, bertemu, dan menikmati kopi.</p></div><div class="concept-pillars"><div class="pillar-box"><h4>☕ Biji Kopi Pilihan</h4><p>Racikan kopi pilihan dengan cita rasa khas Nusantara.</p></div><div class="pillar-box"><h4>🌿 Suasana Nyaman</h4><p>Ruang komunal untuk WFC maupun bercengkerama.</p></div></div></div></div></section>
+  <section class="quick-info-section"><div class="container"><div class="quick-info-grid">
+    <div class="quick-card"><div class="quick-card-icon">📍</div><h4>Lokasi Strategis</h4><p>Pasar Minggu, Jakarta Selatan.</p></div>
+    <div class="quick-card"><div class="quick-card-icon">☕</div><h4>Kopi Pilihan</h4><p>Racikan khas Primo Kopi.</p></div>
+    <div class="quick-card"><div class="quick-card-icon">💻</div><h4>WFC Ready</h4><p>Tempat nyaman untuk bekerja.</p></div>
+    <div class="quick-card"><div class="quick-card-icon">🕙</div><h4>Buka Setiap Hari</h4><p>Sampai pukul 22.00 WIB.</p></div>
+  </div></div></section>
+  <section class="ambience-section" id="suasana"><div class="container"><div class="section-header"><span class="section-subtitle">Pilihan Tempat Duduk</span><h2 class="section-title">Temukan Sudut Nyaman Yang Cocok untukmu</h2><p>Ruang hangat untuk kerjasama, nongkrong santai, dan ngobrol bersama teman.</p></div><div class="ambience-grid">
+    <div class="ambience-card"><h3>Ruang Komunal</h3><p>Area nyaman dengan pencahayaan hangat untuk kerja santai dan pertemuan informal.</p><span class="ambience-pill">WFC Ready</span></div>
+    <div class="ambience-card"><h3>Nuansa Pedesaan</h3><p>Material kayu, sentuhan natural, dan suasana akrab yang membawa rasa pulang.</p><span class="ambience-pill">Hangat &amp; Akrab</span></div>
+    <div class="ambience-card"><h3>Outdoor Asri</h3><p>Ruang terbuka yang segar untuk menikmati kopi sambil melepas penat di kota.</p><span class="ambience-pill">Cocok untuk Gathering</span></div>
+  </div></div></section>
+  <section class="menu-section" id="menu"><div class="container">
+    <div class="section-header"><span class="section-subtitle">Menu Rekomendasi</span><h2 class="section-title">Kopi Pilihan &amp; Santapan Favorit</h2><p>Nikmati berbagai pilihan menu andalan Primo Kopi.</p></div>
+    <div class="menu-filter-container">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Coffee &amp; Non-Coffee</button>
+      <button class="filter-btn">Food</button>
+      <button class="filter-btn">Dessert</button>
     </div>
-  </section>
-
-  <section class="quick-info-section">
-    <div class="container">
-      <div class="quick-info-grid">
-        <div class="quick-card">
-          <div class="quick-card-icon">📍</div>
-          <h4>Lokasi Strategis</h4>
-          <p>Pasar Minggu, Jakarta Selatan.</p>
-        </div>
-        <div class="quick-card">
-          <div class="quick-card-icon">☕</div>
-          <h4>Kopi Pilihan</h4>
-          <p>Racikan khas Primo Kopi.</p>
-        </div>
-        <div class="quick-card">
-          <div class="quick-card-icon">💻</div>
-          <h4>WFC Ready</h4>
-          <p>Tempat nyaman untuk bekerja.</p>
-        </div>
-        <div class="quick-card">
-          <div class="quick-card-icon">🕙</div>
-          <h4>Buka Setiap Hari</h4>
-          <p>Sampai pukul 22.00 WIB.</p>
-        </div>
-      </div>
+    <div class="menu-grid">
+      <div class="menu-card"><div><div class="menu-card-header"><span class="menu-tag tag-popular">Populer #1</span></div><h4 class="menu-name">Ice Creamy Latte Primo</h4><p class="menu-desc">Espresso kental dengan susu creamy lembut dan hint manis gula aren lokal yang seimbang dan menyegarkan.</p></div><div class="menu-footer"><span class="menu-price">Signature Item</span></div></div>
+      <div class="menu-card"><div><div class="menu-card-header"><span class="menu-tag tag-signature">Signature Fusion</span></div><h4 class="menu-name">Primo Breeze</h4><p class="menu-desc">Minuman signature kreasi barista Primo dengan sensasi sari buah segar dan aroma eksotis khas alam pedesaan.</p></div><div class="menu-footer"><span class="menu-price">House Special</span></div></div>
+      <div class="menu-card"><div><div class="menu-card-header"><span class="menu-tag tag-kediri">Otentik Desa</span></div><h4 class="menu-name">Kopi Tubruk Susu Kediri</h4><p class="menu-desc">Seduhan kopi hitam khas Jawa Timuran dengan perpaduan susu kental manis dan gula kelapa yang gurih.</p></div><div class="menu-footer"><span class="menu-price">Heritage Blend</span></div></div>
     </div>
-  </section>
-
-  <section class="ambience-section" id="suasana">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Pilihan Tempat Duduk</span>
-        <h2 class="section-title">Temukan Sudut Nyaman Yang Cocok untukmu</h2>
-        <p>Ruang hangat untuk kerjasama, nongkrong santai, dan ngobrol bersama teman.</p>
-      </div>
-      <div class="ambience-grid">
-        <div class="ambience-card">
-          <h3>Ruang Komunal</h3>
-          <p>Area nyaman dengan pencahayaan hangat untuk kerja santai dan pertemuan informal.</p>
-          <span class="ambience-pill">WFC Ready</span>
-        </div>
-        <div class="ambience-card">
-          <h3>Nuansa Pedesaan</h3>
-          <p>Material kayu, sentuhan natural, dan suasana akrab yang membawa rasa pulang.</p>
-          <span class="ambience-pill">Hangat &amp; Akrab</span>
-        </div>
-        <div class="ambience-card">
-          <h3>Outdoor Asri</h3>
-          <p>Ruang terbuka yang segar untuk menikmati kopi sambil melepas penat di kota.</p>
-          <span class="ambience-pill">Cocok untuk Gathering</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="menu-section" id="menu">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Menu Rekomendasi</span>
-        <h2 class="section-title">Kopi Pilihan &amp; Santapan Favorit</h2>
-        <p>Nikmati berbagai pilihan menu andalan Primo Kopi.</p>
-      </div>
-      <div class="menu-filter-container">
-        <button class="filter-btn active">Semua</button>
-        <button class="filter-btn">Kopi &amp; Minuman</button>
-        <button class="filter-btn">Makanan</button>
-        <button class="filter-btn">Dessert</button>
-      </div>
-      <div class="menu-grid">
-        <div class="menu-card">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-popular">Populer #1</span>
-              <span class="star-stars">★★★★★</span>
-            </div>
-            <h4 class="menu-name">Ice Creamy Latte Primo</h4>
-            <p class="menu-desc">Espresso kental dengan susu creamy lembut dan hint manis gula aren lokal yang seimbang dan menyegarkan.</p>
-          </div>
-          <div class="menu-footer"><span class="menu-price">Signature Item</span><span class="order-item-btn">↗</span></div>
-        </div>
-        <div class="menu-card">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-signature">Signature Fusion</span>
-              <span class="star-stars">★★★★★</span>
-            </div>
-            <h4 class="menu-name">Primo Breeze</h4>
-            <p class="menu-desc">Minuman signature kreasi barista Primo dengan sensasi sari buah segar dan aroma eksotis khas alam pedesaan.</p>
-          </div>
-          <div class="menu-footer"><span class="menu-price">House Special</span><span class="order-item-btn">↗</span></div>
-        </div>
-        <div class="menu-card">
-          <div>
-            <div class="menu-card-header">
-              <span class="menu-tag tag-kediri">Otentik Desa</span>
-              <span class="star-stars">★★★★★</span>
-            </div>
-            <h4 class="menu-name">Kopi Tubruk Susu Kediri</h4>
-            <p class="menu-desc">Seduhan kopi hitam khas Jawa Timuran dengan perpaduan susu kental manis dan gula kelapa yang gurih.</p>
-          </div>
-          <div class="menu-footer"><span class="menu-price">Heritage Blend</span><span class="order-item-btn">↗</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="reviews-section" id="ulasan">
-    <div class="container">
-      <div class="reviews-header">
-        <span class="section-subtitle" style="color: #FBBF24;">Suara Pengunjung</span>
-        <h2>Apa Kata Mereka?</h2>
-        <div class="google-rating-banner">
-          <span class="google-score">4.7</span>
-          <span class="star-stars">★★★★★</span>
-          <span>560+ Ulasan Pengunjung</span>
-        </div>
-      </div>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="quote-icon">“</div>
-          <p class="review-text">Tempatnya nyaman dan kopinya enak. Cocok banget buat kerja santai sambil nongkrong.</p>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">A</div>
-            <div class="reviewer-details"><h5>Pengunjung</h5><span>Ulasan Google</span></div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="quote-icon">“</div>
-          <p class="review-text">Suasananya hangat, desainnya khas, dan rasa kopinya selalu konsisten setiap kali datang.</p>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">B</div>
-            <div class="reviewer-details"><h5>Pengunjung</h5><span>Ulasan Google</span></div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="quote-icon">“</div>
-          <p class="review-text">Cocok untuk meeting kecil, WFC, atau sekadar nugas sambil menikmati kopi dan makanan.</p>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">C</div>
-            <div class="reviewer-details"><h5>Pengunjung</h5><span>Ulasan Google</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="location-section" id="lokasi">
-    <div class="container">
-      <div class="location-grid">
-        <div class="location-card">
-          <span class="section-subtitle">Kunjungi Kami</span>
-          <h2 class="section-title">Temukan Primo Kopi</h2>
-          <div class="info-group">
-            <div class="info-icon">📍</div>
-            <div class="info-content"><h4>Lokasi</h4><p>Pasar Minggu, South Jakarta City, Jakarta</p></div>
-          </div>
-          <div class="info-group">
-            <div class="info-icon">🕙</div>
-            <div class="info-content"><h4>Jam Operasional</h4><p>Buka setiap hari · Tutup 22.00 WIB</p></div>
-          </div>
-          <div class="info-group">
-            <div class="info-icon">📞</div>
-            <div class="info-content"><h4>Reservasi &amp; Order</h4><p>081510294427</p></div>
-          </div>
-          <div class="crowd-meter">
-            <div class="crowd-status"><span>Live Crowd Meter</span><span style="color: #10B981;">Suasana Nyaman</span></div>
-            <div class="meter-bar"><div class="meter-fill"></div></div>
-          </div>
-        </div>
-
-        <div class="map-preview-card">
-          <div class="map-embed-wrapper">
-            <iframe src="https://maps.google.com/maps?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta&output=embed" loading="lazy" title="Peta lokasi Primo Kopi"></iframe>
-          </div>
-          <div class="map-actions">
-            <a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" target="_blank" class="btn btn-primary">Petunjuk Arah</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="cta-banner">
-      <h2>Ingin Mengadakan Gathering atau Reservasi Tempat?</h2>
-      <p>Primo Kopi menyediakan area indoor komunal bernuansa kayu pedesaan dan outdoor asri untuk kebutuhan Anda.</p>
-      <a href="https://wa.me/6281510294427" target="_blank" class="btn btn-primary">Hubungi Kami</a>
-    </div>
-  </div>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h3>PRIMO KOPI</h3>
-          <p>Perpaduan harmoni kehangatan pedesaan lokal Kediri dengan ritme urban Jakarta modern. Menjadi ruang singgah hangat untuk menikmati kopi dan kebersamaan.</p>
-        </div>
-        <div class="footer-col">
-          <h5>Navigasi</h5>
-          <ul class="footer-links">
-            <li><a href="#konsep">Konsep</a></li>
-            <li><a href="#suasana">Ruang &amp; Ambience</a></li>
-            <li><a href="#menu">Menu Pilihan</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Informasi</h5>
-          <ul class="footer-links">
-            <li><a href="#ulasan">Ulasan</a></li>
-            <li><a href="#lokasi">Lokasi</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Hubungi Kami</h5>
-          <ul class="footer-links">
-            <li><a href="https://wa.me/6281510294427">WhatsApp: 081510294427</a></li>
-            <li>Pasar Minggu, Jakarta Selatan</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2025 Primo Kopi. Hak cipta dilindungi.</span>
-        <span>Kediri × Urban Jakarta</span>
-      </div>
-    </div>
-  </footer>
-
+  </div></section>
+  <section class="reviews-section" id="ulasan"><div class="container"><div class="reviews-header"><span class="section-subtitle" style="color:#FBBF24;">Suara Pengunjung</span><h2>Apa Kata Mereka?</h2><div class="google-rating-banner"><span class="google-score">4.7</span><span class="star-stars">★★★★★</span><span>560+ Ulasan Pengunjung</span></div></div><div class="reviews-grid">
+    <div class="review-card"><div class="quote-icon">“</div><p class="review-text">Tempatnya nyaman dan kopinya enak. Cocok banget buat kerja santai sambil nongkrong.</p><div class="reviewer-info"><div class="reviewer-avatar">A</div><div class="reviewer-details"><h5>Pengunjung</h5><span>Ulasan Google</span></div></div></div>
+    <div class="review-card"><div class="quote-icon">“</div><p class="review-text">Suasananya hangat, pilihan menu juga beragam. Pasti ingin kembali lagi.</p><div class="reviewer-info"><div class="reviewer-avatar">B</div><div class="reviewer-details"><h5>Pengunjung</h5><span>Ulasan Google</span></div></div></div>
+    <div class="review-card"><div class="quote-icon">“</div><p class="review-text">Tempat yang pas untuk menikmati kopi dan menghabiskan waktu.</p><div class="reviewer-info"><div class="reviewer-avatar">C</div><div class="reviewer-details"><h5>Pengunjung</h5><span>Ulasan Google</span></div></div></div>
+  </div></div></section>
+  <section class="location-section" id="lokasi"><div class="container"><div class="location-grid"><div class="location-card"><span class="section-subtitle">Kunjungi Kami</span><h2 class="section-title">Temukan Primo Kopi</h2>
+    <div class="info-group"><div class="info-icon">📍</div><div class="info-content"><h4>Lokasi</h4><p>Pasar Minggu, South Jakarta City, Jakarta</p></div></div>
+    <div class="info-group"><div class="info-icon">🕙</div><div class="info-content"><h4>Jam Operasional</h4><p>Buka setiap hari · Tutup 22.00 WIB</p></div></div>
+    <div class="info-group"><div class="info-icon">📞</div><div class="info-content"><h4>Reservasi &amp; Order</h4><p>081510294427</p></div></div>
+    <div class="crowd-meter"><div class="crowd-status"><span>Live Crowd Meter</span><span style="color:#10B981;">Suasana Nyaman</span></div><div class="meter-bar"><div class="meter-fill"></div></div></div>
+  </div><div class="map-preview-card"><div class="map-embed-wrapper"><iframe src="https://maps.google.com/maps?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta&amp;output=embed" loading="lazy" title="Peta lokasi Primo Kopi"></iframe></div><div class="map-actions"><a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" target="_blank" class="btn btn-primary">Petunjuk Arah</a></div></div></div></div></section>
+  <div class="container"><div class="cta-banner"><h2>Ingin Mengadakan Gathering atau Reservasi Tempat?</h2><p>Primo Kopi menyediakan area indoor komunal bernuansa kayu pedesaan dan outdoor asri untuk kebutuhan Anda.</p><a href="https://wa.me/6281510294427" target="_blank" class="btn btn-primary">Hubungi Kami</a></div></div>
+  <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>PRIMO KOPI</h3><p>Perpaduan harmoni kehangatan pedesaan lokal Kediri dengan ritme urban Jakarta modern. Menjadi ruang singgah hangat untuk menikmati kopi dan kebersamaan.</p></div><div class="footer-col"><h5>Navigasi</h5><ul class="footer-links"><li><a href="#konsep">Konsep</a></li><li><a href="#suasana">Ruang &amp; Ambience</a></li><li><a href="#menu">Menu Pilihan</a></li></ul></div><div class="footer-col"><h5>Informasi</h5><ul class="footer-links"><li><a href="#ulasan">Ulasan</a></li><li><a href="#lokasi">Lokasi</a></li></ul></div><div class="footer-col"><h5>Hubungi Kami</h5><ul class="footer-links"><li><a href="https://wa.me/6281510294427">WhatsApp: 081510294427</a></li><li>Pasar Minggu, Jakarta Selatan</li></ul></div></div><div class="footer-bottom"><span>© 2025 Primo Kopi. Hak cipta dilindungi.</span><span>Kediri × Urban Jakarta</span></div></div></footer>
   <script>
     const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-      });
-    });
+    filterButtons.forEach(button => button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    }));
   </script>
 </body>
 </html>
