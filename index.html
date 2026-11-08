@@ -36,7 +36,7 @@
     header { position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid var(--border); }
     .nav-container { display: flex; justify-content: space-between; align-items: center; min-height: 80px; gap: 20px; }
     .brand-logo { display: flex; align-items: center; gap: 14px; }
-    .logo-emblem { width: 44px; height: 44px; background: var(--brand-amber); color: #120d0a; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 800; font-size: 1.25rem; }
+    .logo-emblem { width: 44px; height: 44px; background: var(--brand-amber); color: #120d0a; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 800; font-size: 1.5rem; }
     .brand-name { font-size: 1.35rem; font-weight: 800; color: var(--brand-espresso); line-height: 1.1; }
     .brand-name span { display: block; font-size: .72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--brand-amber); }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
@@ -60,16 +60,15 @@
     .stat-item p { font-size: .85rem; color: var(--text-muted); }
     .hero-visual { position: relative; }
     .hero-card-main { background: var(--bg-surface); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-lg); border: 1px solid var(--border); position: relative; }
-    .hero-banner-art { position: relative; width: 100%; height: 360px; border-radius: var(--radius-md); overflow: hidden; background: #f3d104; display: flex; align-items: center; justify-content: center; padding: 32px; isolation: isolate; }
-    .hero-banner-art::before { content: ''; position: absolute; inset: auto -12% -18% auto; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle,rgba(255,255,255,.2),rgba(255,255,255,0)); z-index: 0; }
-    .hero-logo-mark { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-3deg); filter: drop-shadow(0 10px 0 rgba(32,25,20,.9)); }
+    .hero-banner-art { position: relative; width: 100%; height: 360px; border-radius: var(--radius-md); overflow: hidden; background: #f3d104; display: flex; align-items: center; justify-content: center; }
+    .hero-banner-art::before { content: ''; position: absolute; inset: auto -12% -18% auto; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle,rgba(255,255,255,.2),transparent 70%); }
+    .hero-logo-mark { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-3deg); filter: drop-shadow(0 10px 0 rgba(32,25,20,.18)); }
     .logo-word { display: block; font-size: clamp(4.2rem,5vw,8.5rem); line-height: .78; font-weight: 900; letter-spacing: -.08em; text-transform: uppercase; font-family: Impact,'Arial Black',sans-serif; position: relative; -webkit-text-stroke: 8px rgba(32,25,20,.92); text-shadow: 0 8px 0 rgba(32,25,20,.88); transform: skewY(-3deg); }
     .logo-word--top { color: #c4f0f3; margin-bottom: .06em; }
     .logo-word--bottom { color: #f7b7d3; }
     .floating-card-rating { position: absolute; top: -20px; right: -15px; background: var(--bg-surface); padding: 16px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 12px; border: 1px solid var(--border); }
     .star-score { font-size: 1.6rem; font-weight: 800; color: var(--brand-espresso); }
     .star-stars { color: #f59e0b; font-size: .9rem; }
-    .floating-card-status { position: absolute; bottom: -15px; left: 10px; background: var(--bg-surface); padding: 14px 18px; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 12px; border: 1px solid var(--border); }
     .icon-box { width: 42px; height: 42px; background: var(--brand-amber-light); color: var(--brand-amber); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
     .section-header { text-align: center; max-width: 680px; margin: 0 auto 50px; }
     .section-subtitle { font-size: .85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-amber); font-weight: 700; margin-bottom: 8px; display: block; }
@@ -94,13 +93,13 @@
     .ambience-card { background: var(--bg-surface); border-radius: var(--radius-md); padding: 32px 28px; border: 1px solid var(--border); }
     .ambience-card h3 { font-size: 1.35rem; margin-bottom: 12px; color: var(--brand-espresso); }
     .ambience-card p { color: var(--text-muted); font-size: .95rem; }
-    .ambience-pill { display: inline-block; margin-top: 16px; font-size: .78rem; padding: 4px 10px; background: var(--bg-card); border-radius: var(--radius-full); font-weight: 600; color: var(--brand-amber); }
+    .ambience-pill { display: inline-block; margin-top: 16px; font-size: .78rem; padding: 4px 10px; background: var(--bg-card); border-radius: var(--radius-full); font-weight: 600; color: var(--brand-coffee); }
     .menu-section { padding: 80px 0; }
     .menu-filter-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
     .filter-btn { padding: 10px 22px; border-radius: var(--radius-full); background: var(--bg-surface); border: 1px solid var(--border); font-size: .9rem; font-weight: 600; color: var(--text-muted); }
     .filter-btn.active,.filter-btn:hover { background: var(--brand-amber); color: #120d0a; border-color: var(--brand-amber); font-weight: 700; }
     .menu-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-    .menu-card { background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
+    .menu-card { background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; }
     .menu-card-header { display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: 10px; gap: 10px; }
     .menu-tag { font-size: .72rem; text-transform: uppercase; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: .5px; }
     .tag-popular { background: rgba(239,68,68,.15); color: #f87171; border: 1px solid rgba(239,68,68,.25); }
@@ -190,12 +189,11 @@
         <div class="hero-badge">Pedesaan Lokal Kediri Berpadu dengan Urban Jakarta</div>
         <h1 class="hero-title">Kehangatan Desa,<br><em>Energi Kota</em> di Setiap Cangkir.</h1>
         <p class="hero-desc">Primo Kopi membawa napas ketenangan pedesaan lereng Kediri ke tengah dinamisnya Pasar Minggu, Jakarta Selatan. Tempat singgah hangat dengan biji kopi pilihan, racikan artisanal, dan ruang komunal yang nyaman untuk WFC maupun bercengkerama.</p>
-        <div class="hero-actions"><a href="#menu" class="btn btn-primary" style="padding:14px 28px;font-size:1rem;">Lihat Menu Pilihan</a><a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" class="btn btn-outline" style="padding:14px 28px;font-size:1rem;" target="_blank">Petunjuk Arah (Maps)</a></div>
-        <div class="hero-stats"><div class="stat-item"><h4>4.7 / 5.0</h4><p>560+ Ulasan Pengunjung</p></div><div class="stat-item"><h4>Rp 50k - 125k</h4><p>Estimasi per Orang</p></div><div class="stat-item"><h4>Kediri × Urban</h4><p>Guyub Pedesaan &amp; WFC Ready</p></div></div>
+        <div class="hero-actions"><a href="#menu" class="btn btn-primary" style="padding:14px 28px;font-size:1rem;">Lihat Menu Pilihan</a><a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" class="btn btn-outline" style="padding:14px 28px;font-size:1rem;" target="_blank">Petunjuk Arah</a></div>
+        <div class="hero-stats"><div class="stat-item"><h4>4.7 / 5.0</h4><p>560+ Ulasan Pengunjung</p></div><div class="stat-item"><h4>Rp 50k - 125k</h4><p>Estimasi per Orang</p></div><div class="stat-item"><h4>Kediri × Urban</h4><p>Guyub Pedesaan &amp; WFC</p></div></div>
       </div>
       <div class="hero-visual"><div class="hero-card-main"><div class="hero-banner-art"><div class="hero-logo-mark" aria-label="Primo Kopi logo"><span class="logo-word logo-word--top">PRIMO</span><span class="logo-word logo-word--bottom">KOPI</span></div></div>
         <div class="floating-card-rating"><div class="star-score">4.7</div><div><div class="star-stars">★★★★★</div><div style="font-size:.75rem;color:var(--text-muted);font-weight:600;">560 Ulasan Terverifikasi</div></div></div>
-        <div class="floating-card-status"><div class="icon-box">☕</div><div><div style="font-size:.85rem;font-weight:700;color:var(--brand-espresso);">Live Crowd Meter</div><div style="font-size:.75rem;color:#10B981;font-weight:600;">✓ Suasana Nyaman &amp; Kondusif</div></div></div>
       </div></div>
     </div>
   </section>
@@ -222,10 +220,10 @@
     <div class="menu-grid">
       <div class="menu-card"><div><div class="menu-card-header"><span class="menu-tag tag-popular">Populer #1</span></div><h4 class="menu-name">Ice Creamy Latte Primo</h4><p class="menu-desc">Espresso kental dengan susu creamy lembut dan hint manis gula aren lokal yang seimbang dan menyegarkan.</p></div><div class="menu-footer"><span class="menu-price">Signature Item</span></div></div>
       <div class="menu-card"><div><div class="menu-card-header"><span class="menu-tag tag-signature">Signature Fusion</span></div><h4 class="menu-name">Primo Breeze</h4><p class="menu-desc">Minuman signature kreasi barista Primo dengan sensasi sari buah segar dan aroma eksotis khas alam pedesaan.</p></div><div class="menu-footer"><span class="menu-price">House Special</span></div></div>
-      <div class="menu-card"><div><div class="menu-card-header"><span class="menu-tag tag-kediri">Otentik Desa</span></div><h4 class="menu-name">Kopi Tubruk Susu Kediri</h4><p class="menu-desc">Seduhan kopi hitam khas Jawa Timuran dengan perpaduan susu kental manis dan gula kelapa yang gurih.</p></div><div class="menu-footer"><span class="menu-price">Heritage Blend</span></div></div>
+      <div class="menu-card"><div><div class="menu-card-header"><span class="menu-tag tag-kediri">Otentik Desa</span></div><h4 class="menu-name">Kopi Tubruk Susu Kediri</h4><p class="menu-desc">Seduhan kopi robusta pilihan dengan susu, menghadirkan cita rasa khas pedesaan Kediri.</p></div><div class="menu-footer"><span class="menu-price">Pilihan Lokal</span></div></div>
     </div>
   </div></section>
-  <section class="reviews-section" id="ulasan"><div class="container"><div class="reviews-header"><span class="section-subtitle" style="color:#FBBF24;">Suara Pengunjung</span><h2>Apa Kata Mereka?</h2><div class="google-rating-banner"><span class="google-score">4.7</span><span class="star-stars">★★★★★</span><span>560+ Ulasan Pengunjung</span></div></div><div class="reviews-grid">
+  <section class="reviews-section" id="ulasan"><div class="container"><div class="reviews-header"><span class="section-subtitle" style="color:#FBBF24;">Suara Pengunjung</span><h2>Apa Kata Mereka?</h2><div class="google-rating-banner"><span class="google-score">4.7</span><span>★★★★★<br>560+ Ulasan Pengunjung</span></div></div><div class="reviews-grid">
     <div class="review-card"><div class="quote-icon">“</div><p class="review-text">Tempatnya nyaman dan kopinya enak. Cocok banget buat kerja santai sambil nongkrong.</p><div class="reviewer-info"><div class="reviewer-avatar">A</div><div class="reviewer-details"><h5>Pengunjung</h5><span>Ulasan Google</span></div></div></div>
     <div class="review-card"><div class="quote-icon">“</div><p class="review-text">Suasananya hangat, pilihan menu juga beragam. Pasti ingin kembali lagi.</p><div class="reviewer-info"><div class="reviewer-avatar">B</div><div class="reviewer-details"><h5>Pengunjung</h5><span>Ulasan Google</span></div></div></div>
     <div class="review-card"><div class="quote-icon">“</div><p class="review-text">Tempat yang pas untuk menikmati kopi dan menghabiskan waktu.</p><div class="reviewer-info"><div class="reviewer-avatar">C</div><div class="reviewer-details"><h5>Pengunjung</h5><span>Ulasan Google</span></div></div></div>
@@ -237,7 +235,7 @@
     <div class="crowd-meter"><div class="crowd-status"><span>Live Crowd Meter</span><span style="color:#10B981;">Suasana Nyaman</span></div><div class="meter-bar"><div class="meter-fill"></div></div></div>
   </div><div class="map-preview-card"><div class="map-embed-wrapper"><iframe src="https://maps.google.com/maps?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta&amp;output=embed" loading="lazy" title="Peta lokasi Primo Kopi"></iframe></div><div class="map-actions"><a href="https://maps.google.com/?q=Pasar+Minggu,+South+Jakarta+City,+Jakarta" target="_blank" class="btn btn-primary">Petunjuk Arah</a></div></div></div></div></section>
   <div class="container"><div class="cta-banner"><h2>Ingin Mengadakan Gathering atau Reservasi Tempat?</h2><p>Primo Kopi menyediakan area indoor komunal bernuansa kayu pedesaan dan outdoor asri untuk kebutuhan Anda.</p><a href="https://wa.me/6281510294427" target="_blank" class="btn btn-primary">Hubungi Kami</a></div></div>
-  <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>PRIMO KOPI</h3><p>Perpaduan harmoni kehangatan pedesaan lokal Kediri dengan ritme urban Jakarta modern. Menjadi ruang singgah hangat untuk menikmati kopi dan kebersamaan.</p></div><div class="footer-col"><h5>Navigasi</h5><ul class="footer-links"><li><a href="#konsep">Konsep</a></li><li><a href="#suasana">Ruang &amp; Ambience</a></li><li><a href="#menu">Menu Pilihan</a></li></ul></div><div class="footer-col"><h5>Informasi</h5><ul class="footer-links"><li><a href="#ulasan">Ulasan</a></li><li><a href="#lokasi">Lokasi</a></li></ul></div><div class="footer-col"><h5>Hubungi Kami</h5><ul class="footer-links"><li><a href="https://wa.me/6281510294427">WhatsApp: 081510294427</a></li><li>Pasar Minggu, Jakarta Selatan</li></ul></div></div><div class="footer-bottom"><span>© 2025 Primo Kopi. Hak cipta dilindungi.</span><span>Kediri × Urban Jakarta</span></div></div></footer>
+  <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>PRIMO KOPI</h3><p>Perpaduan harmoni kehangatan pedesaan lokal Kediri dengan ritme urban Jakarta modern. Menjadi tempat singgah yang nyaman untuk semua.</p></div><div class="footer-col"><h5>Jelajahi</h5><ul class="footer-links"><li><a href="#konsep">Konsep</a></li><li><a href="#suasana">Ambience</a></li><li><a href="#menu">Menu</a></li><li><a href="#lokasi">Lokasi</a></li></ul></div><div class="footer-col"><h5>Hubungi</h5><ul class="footer-links"><li><a href="https://wa.me/6281510294427">WhatsApp</a></li><li>Pasar Minggu, Jakarta Selatan</li></ul></div><div class="footer-col"><h5>Jam Buka</h5><ul class="footer-links"><li>Setiap hari</li><li>10.00 - 22.00 WIB</li></ul></div></div><div class="footer-bottom"><span>© 2025 Primo Kopi. All rights reserved.</span><span>Kediri × Urban Jakarta</span></div></div></footer>
   <script>
     const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(button => button.addEventListener('click', () => {
