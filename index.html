@@ -274,11 +274,7 @@
       height: 360px;
       border-radius: var(--radius-md);
       overflow: hidden;
-      background-image:
-        linear-gradient(180deg, rgba(26, 16, 10, 0.18), rgba(26, 16, 10, 0.52)),
-        url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80');
-      background-size: cover;
-      background-position: center;
+      background: #f3d104;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -288,57 +284,42 @@
     .hero-banner-art::before {
       content: '';
       position: absolute;
-      inset: auto -10% -16% auto;
-      width: 320px;
-      height: 320px;
+      inset: auto -12% -18% auto;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(226, 140, 75, 0.35), rgba(226, 140, 75, 0));
-      z-index: -1;
-    }
-    .hero-banner-art::after {
-      content: 'KEDIRI × JAKARTA';
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      font-size: 0.72rem;
-      letter-spacing: 2px;
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: rgba(255,255,255,0.72);
-      background: rgba(13, 9, 7, 0.18);
+      background: radial-gradient(circle, rgba(255,255,255,0.2), rgba(255,255,255,0));
+      z-index: 0;
     }
     .hero-logo-mark {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       transform: rotate(-3deg);
-      filter: drop-shadow(0 12px 18px rgba(0,0,0,0.18));
+      filter: drop-shadow(0 10px 0 rgba(32,25,20,0.9));
     }
     .logo-word {
       display: block;
-      font-size: clamp(5rem, 6vw, 9rem);
-      line-height: 0.85;
+      font-size: clamp(4.2rem, 5vw, 8.5rem);
+      line-height: 0.78;
       font-weight: 900;
       letter-spacing: -0.08em;
       text-transform: uppercase;
       font-family: 'Impact', 'Arial Black', sans-serif;
       position: relative;
-      color: #f4dc65;
-      -webkit-text-stroke: 8px rgba(32, 25, 20, 0.9);
-      text-shadow:
-        0 8px 0 rgba(32,25,20,0.88),
-        0 18px 20px rgba(0,0,0,0.2);
+      -webkit-text-stroke: 8px rgba(32, 25, 20, 0.92);
+      text-shadow: 0 8px 0 rgba(32,25,20,0.88);
+      transform: skewY(-3deg);
     }
     .logo-word--top {
-      color: #dffaf8;
-      -webkit-text-stroke: 8px rgba(32, 25, 20, 0.9);
-      margin-bottom: 0.1em;
+      color: #c4f0f3;
+      margin-bottom: 0.06em;
     }
     .logo-word--bottom {
-      color: #f7bfd9;
-      -webkit-text-stroke: 8px rgba(32, 25, 20, 0.9);
+      color: #f7b7d3;
     }
     .floating-card-rating {
       position: absolute;
